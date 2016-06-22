@@ -1,0 +1,4 @@
+include ':app'
+include ':UtilityFramework'
+
+project(':UtilityFramework').projectDir = new File('Library/Libs/UtilityFramework')
