@@ -1,0 +1,152 @@
+    <!DOCTYPE html>
+<html>
+    <head>
+        <title>启动屏</title>
+        <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta name="apple-mobile-web-app-capable" content="no"/>
+        <meta name="format-detection" content="telephone=no">
+            <link rel="stylesheet" type="text/css" href="../css/welcome.css">
+    </head>
+    <body>
+        
+        <div class="mod-container">
+            <div class="mod-wrap">
+                  
+
+                 <!-- // 第1页 -->
+                <div class="mod-page" id="page1">
+                    <div class="mod-page-item mod-page-item__1-1">
+                        <img class="mod-page-image mod-page-image__1-1" src="../slice/1-1.png" />
+                    </div>
+                    <div class="mod-page-item mod-page-item__1-2">
+                        <img class="mod-page-image mod-page-image__1-2" src="../slice/1-2.png" />
+                    </div>
+                </div>
+                
+                <!-- // 第2页 -->
+                <div class="mod-page" id="page2">
+                    <div class="mod-page-item mod-page-item__2-1">
+                        <img class="mod-page-image mod-page-image__2-1" src="../slice/2-1.png" />    
+                    </div>    
+
+                    <div class="mod-page-item mod-page-item__2-2">
+                        <img class="mod-page-image mod-page-image__2-2" src="../slice/2-2.png"/>
+                    </div>
+                    
+                </div>
+
+                
+                <!-- // 第3页 -->
+                <div class="mod-page" id="page3">
+                    <div class="mod-page-item mod-page-item__3-1">
+                        <img class="mod-page-image mod-page-image__3-1" src="../slice/3-1.png" />
+                    </div>
+                    <div class="mod-page-item mod-page-item__3-2">
+                        <div class="mod-chart">
+                            <div class="mod-chart__head mod-chart__captain-mystate">全国数据</div>
+                            <div class="mod-chart__table">
+                                 <div class="mod-chart__item mod-cmcc">
+                                    <div class="mod-chart__title">中国移动</div>
+                                    <div class="mod-chart__percent">80%</div>
+                                    <div class="mod-chart__bar"></div>
+                                </div>
+                                <div class="mod-chart__item mod-telecom">
+                                    <div class="mod-chart__title">中国电信</div>
+                                    <div class="mod-chart__percent">80%</div>
+                                    <div class="mod-chart__bar"></div>
+                                </div>
+                                <div class="mod-chart__item mod-unicom">
+                                    <div class="mod-chart__title">中国联通</div>
+                                    <div class="mod-chart__percent">80%</div>
+                                    <div class="mod-chart__bar"></div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="mod-chart__captain">根据过去24小时<span class="mod-chart__captain-mystate">全国</span>用户通话情况统计</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- // 第4页 -->
+                <div class="mod-page" id="page4">
+                    <div class="mod-page-item mod-page-item__4-1">
+                        <img class="mod-page-image mod-page-image__4-1" src="../slice/4-1.png" />    
+                    </div>
+                    
+                    <div class="mod-page-item mod-page-item__4-2">
+                        <div class="mod-tab">
+                            
+                            <span data="1" class="mod-tab__item" href="javascript:;">中国电信</span>
+                            <span data="0" class="mod-tab__item mod-tab__item_active" href="javascript:;">中国移动</span>
+                            <span data="2" class="mod-tab__item" href="javascript:;">中国联通</span>
+                        </div>
+                    </div>
+                    <div class="mod-page-item mod-page-item__4-3">
+                        <div class="mod-map-warp" style="">
+                            <div class="mod-map" id="ChinaMap2" style="display:none;"></div>
+                            <div class="mod-map" id="ChinaMap"></div>                            
+                            <div class="mod-map" id="ChinaMap3" style="display:none;"></div>
+                        </div>
+                        <div class="mod-map__discription">根据过去24小时全国用户通话情况统计</div>
+                    </div>
+                    
+                </div>    
+
+                <!-- 第5页 -->
+                <div class="mod-page" id="page5">
+                    <div class="mod-page-item mod-page-item__5-1">
+                        <img class="mod-page-image mod-page-image__5-1" src="../slice/5-1.png" />    
+                    </div>
+                    <div class="mod-page-item mod-page-item__5-2">
+                        <img class="mod-page-image mod-page-image__5-2" src="../slice/5-2.png" />
+                    </div>
+                    
+                    <div class="mod-page-item mod-page-item__share">
+                        <div class="mod-bar">
+                            <span class="mod-button mod-start">开始使用</span>
+                        </div>
+                        <a class="mod-share">分享到朋友圈</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="mod-skip"></div>
+            <div class="mod-next"></div>
+            
+        </div>
+        
+    </body>
+    <script type="text/javascript" src="../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../js/log.js"></script>
+    <script type="text/javascript" src="../js/welcome.js"></script>
+    <script type="text/javascript">
+        WelcomeJS.init();
+        var defaultData = '{"data":{"CMCC":{"anhui":{"data":"80","name":"安徽"},"beijing":{"data":"80","name":"北京"},"chongqing":{"data":"80","name":"重庆"},"fujian":{"data":"80","name":"福建"},"gansu":{"data":"80","name":"甘肃"},"guangdong":{"data":"80","name":"广东"},"guangxi":{"data":"80","name":"广西"},"guizhou":{"data":"80","name":"贵州"},"hainan":{"data":"80","name":"海南"},"hebei":{"data":"80","name":"河北"},"heilongjiang":{"data":"80","name":"黑龙江"},"henan":{"data":"80","name":"河南"},"hongkong":{"data":"80","name":"香港"},"hubei":{"data":"80","name":"湖北"},"hunan":{"data":"80","name":"湖南"},"jiangsu":{"data":"80","name":"江苏"},"jiangxi":{"data":"80","name":"江西"},"jilin":{"data":"80","name":"吉林"},"liaoning":{"data":"80","name":"辽宁"},"macau":{"data":"80","name":"澳门"},"neimongol":{"data":"80","name":"内蒙古"},"ningxia":{"data":"80","name":"宁夏"},"qinghai":{"data":"80","name":"青海"},"shaanxi":{"data":"80","name":"陕西"},"shandong":{"data":"80","name":"山东"},"shanghai":{"data":"80","name":"上海"},"shanxi":{"data":"80","name":"山西"},"sichuan":{"data":"80","name":"四川"},"taiwan":{"data":"80","name":"台湾"},"tianjin":{"data":"80","name":"天津"},"xinjiang":{"data":"80","name":"新疆"},"xizang":{"data":"80","name":"西藏"},"yunnan":{"data":"80","name":"云南"},"zhejiang":{"data":"80","name":"浙江"}},"ChinaTelecom":{"anhui":{"data":"80","name":"安徽"},"beijing":{"data":"80","name":"北京"},"chongqing":{"data":"80","name":"重庆"},"fujian":{"data":"80","name":"福建"},"gansu":{"data":"80","name":"甘肃"},"guangdong":{"data":"80","name":"广东"},"guangxi":{"data":"80","name":"广西"},"guizhou":{"data":"80","name":"贵州"},"hainan":{"data":"80","name":"海南"},"hebei":{"data":"80","name":"河北"},"heilongjiang":{"data":"80","name":"黑龙江"},"henan":{"data":"80","name":"河南"},"hongkong":{"data":"80","name":"香港"},"hubei":{"data":"80","name":"湖北"},"hunan":{"data":"80","name":"湖南"},"jiangsu":{"data":"80","name":"江苏"},"jiangxi":{"data":"80","name":"江西"},"jilin":{"data":"80","name":"吉林"},"liaoning":{"data":"80","name":"辽宁"},"macau":{"data":"80","name":"澳门"},"neimongol":{"data":"80","name":"内蒙古"},"ningxia":{"data":"80","name":"宁夏"},"qinghai":{"data":"80","name":"青海"},"shaanxi":{"data":"80","name":"陕西"},"shandong":{"data":"80","name":"山东"},"shanghai":{"data":"80","name":"上海"},"shanxi":{"data":"80","name":"山西"},"sichuan":{"data":"80","name":"四川"},"taiwan":{"data":"80","name":"台湾"},"tianjin":{"data":"80","name":"天津"},"xinjiang":{"data":"80","name":"新疆"},"xizang":{"data":"80","name":"西藏"},"yunnan":{"data":"80","name":"云南"},"zhejiang":{"data":"80","name":"浙江"}},"ChinaUnicom":{"anhui":{"data":"80","name":"安徽"},"beijing":{"data":"80","name":"北京"},"chongqing":{"data":"80","name":"重庆"},"fujian":{"data":"80","name":"福建"},"gansu":{"data":"80","name":"甘肃"},"guangdong":{"data":"80","name":"广东"},"guangxi":{"data":"80","name":"广西"},"guizhou":{"data":"80","name":"贵州"},"hainan":{"data":"80","name":"海南"},"hebei":{"data":"80","name":"河北"},"heilongjiang":{"data":"80","name":"黑龙江"},"henan":{"data":"80","name":"河南"},"hongkong":{"data":"80","name":"香港"},"hubei":{"data":"80","name":"湖北"},"hunan":{"data":"80","name":"湖南"},"jiangsu":{"data":"80","name":"江苏"},"jiangxi":{"data":"80","name":"江西"},"jilin":{"data":"80","name":"吉林"},"liaoning":{"data":"80","name":"辽宁"},"macau":{"data":"80","name":"澳门"},"neimongol":{"data":"80","name":"内蒙古"},"ningxia":{"data":"80","name":"宁夏"},"qinghai":{"data":"80","name":"青海"},"shaanxi":{"data":"80","name":"陕西"},"shandong":{"data":"80","name":"山东"},"shanghai":{"data":"80","name":"上海"},"shanxi":{"data":"80","name":"山西"},"sichuan":{"data":"80","name":"四川"},"taiwan":{"data":"80","name":"台湾"},"tianjin":{"data":"80","name":"天津"},"xinjiang":{"data":"80","name":"新疆"},"xizang":{"data":"80","name":"西藏"},"yunnan":{"data":"80","name":"云南"},"zhejiang":{"data":"80","name":"浙江"}},"other":{"anhui":{"data":"80","name":"安徽"},"beijing":{"data":"80","name":"北京"},"chongqing":{"data":"80","name":"重庆"},"fujian":{"data":"80","name":"福建"},"gansu":{"data":"80","name":"甘肃"},"guangdong":{"data":"80","name":"广东"},"guangxi":{"data":"80","name":"广西"},"guizhou":{"data":"80","name":"贵州"},"hainan":{"data":"80","name":"海南"},"hebei":{"data":"80","name":"河北"},"heilongjiang":{"data":"80","name":"黑龙江"},"henan":{"data":"80","name":"河南"},"hongkong":{"data":"80","name":"香港"},"hubei":{"data":"80","name":"湖北"},"hunan":{"data":"80","name":"湖南"},"jiangsu":{"data":"80","name":"江苏"},"jiangxi":{"data":"80","name":"江西"},"jilin":{"data":"80","name":"吉林"},"liaoning":{"data":"80","name":"辽宁"},"macau":{"data":"80","name":"澳门"},"neimongol":{"data":"80","name":"内蒙古"},"ningxia":{"data":"80","name":"宁夏"},"qinghai":{"data":"80","name":"青海"},"shaanxi":{"data":"80","name":"陕西"},"shandong":{"data":"80","name":"山东"},"shanghai":{"data":"80","name":"上海"},"shanxi":{"data":"80","name":"山西"},"sichuan":{"data":"80","name":"四川"},"taiwan":{"data":"80","name":"台湾"},"tianjin":{"data":"80","name":"天津"},"xinjiang":{"data":"80","name":"新疆"},"xizang":{"data":"80","name":"西藏"},"yunnan":{"data":"80","name":"云南"},"zhejiang":{"data":"80","name":"浙江"}}},"errMsg":"","my":null,"status":0,"local":1}';
+        </script>
+    <script type="text/javascript" src="../js/LAB.min.js"></script>
+    
+    <script>
+        $LAB.script({src: "../js/jquery.min.js", charset: "UTF-8" })
+        .script({ src: "../js/raphael-min.js", charset: "UTF-8" })
+        .script({ src: "../js/chinaMapConfig.js", charset: "UTF-8" })
+        .script({ src: "../js/map.js", charset: "UTF-8" })
+        .script({ src: "../js/showchart.js", charset: "UTF-8" })
+
+        .wait(function(){
+              //android ios 捕获事件使用
+              location.href = 'pbjs://loadcomplete';
+              
+                WelcomeJS.showDefault = function(){
+                    WelcomeJS.showMap(defaultData);
+                }
+                WelcomeJS.showDefault();
+              });
+        
+        </script>
+    
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+        <title>微信电话本网络测速</title>
+        <meta charset="utf-8">
+            <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1 , user-scalable=no"/>
+            <meta name="keywords" content=""/>
+            <meta name="description" content=""/>
+            <meta name="apple-mobile-web-app-capable" content="no"/>
+            <meta name="format-detection" content="telephone=no">
+                <link rel="stylesheet" type="text/css" href="css/chart.css">
+                    <script type="text/javascript" src="js/jquery.min.js"></script>
+    </head>
+    <body>
+        
+        <div class="mod-tab">
+            <a class="mod-tab__item mod-tab__item_active" href="javascript:PhoneBook.renderTabCheck();" id="">当前设备</a>
+            <a class="mod-tab__item" href="http://dianhua.qq.com/cgi-bin/readtemplate?t=dianhuaben_network_area&from=app" id="gotoAreaPage">当前地区</a>
+            <a class="mod-tab__item" href="http://dianhua.qq.com/cgi-bin/readtemplate?t=dianhuaben_network_china&from=app" id="gotoChinaPage">全国状态</a>
+        </div>
+        <div class="mod-middle-box" style="min-height:390px;">
+            <div class="mod-check mod-check_loading" id="containerCheck">
+                <div class="mod-check__head">
+                    <div class="mod-check__circle-backgroud"></div>
+                    <div class="mod-check__circle-mask animate"></div>
+                    <div class="mod-check__result">
+                        <div class="mod-check__title">
+                            <span class="mod-check__title-score">80</span><span class="mod-check__title-fen">分</span>
+                        </div>
+                        <div class="mod-check__intro"> 很棒哦！</div>
+                    </div>
+                    <div class="mod-check__placeholder">检查中...</div>
+                </div>
+                <div class="mod-check__list">
+                    <div class="mod-check__item" id="itemCheckPoint">
+                        <i class="mod-check__item-icon"></i>
+                        <span class="mod-check__item-text">正在检查接入点设置...</span>
+                    </div>
+                    <div class="mod-check__item" id="itemDNS">
+                        <i class="mod-check__item-icon"></i>
+                        <span class="mod-check__item-text">正在进行域名解析...</span>
+                    </div>
+                    <div class="mod-check__item" id="itemAccess">
+                        <i class="mod-check__item-icon"></i>
+                        <span class="mod-check__item-text">正在检查信令通道设置...</span>
+                    </div>
+                    <div class="mod-check__item" id="itemTransfer">
+                        <i class="mod-check__item-icon"></i>
+                        <span class="mod-check__item-text">正在检查语音通道设置...</span>
+                    </div>
+                </div>
+                <!-- <div class="mod-check__refresh">
+                 <a href="javascript:location.reload();" class="mod-check__refresh-link">重新测速</a>
+                 </div> -->
+                
+            </div>
+            <div class="reload-btn" style="display:none;">
+                <a href="javascript:location.reload();" class="reload-btn-a">重新测速</a>
+            </div>
+            <div class="mod-bar" id="operateBar" style="display:none;">
+                <a class="mod-button mod-button_green" id="moments_btn">分享到朋友圈</a>
+            </div>
+            
+            <div class="mod-network-error">
+                <span class="mod-network-error__icon"></span>
+                <div class="mod-network-error__text">连接失败，请检查网络设置</div>
+            </div>
+        </div>
+        <div class="mod-copyright" style="display:none;">
+            Powered by 微信电话本
+        </div>
+        <script type="text/javascript">
+            var objectString = '{"data":{"score":82,"checkpoint":0,"dns":1,"access":0,"transfer":1},"platform":"ios"}';
+            
+            var PhoneBook = window.PhoneBook || {};
+            var CheckData = window.CheckData || {};
+            var timeout = 1500;
+            PhoneBook = {
+
+                uuid:'',
+                
+                checknetwork : function(data){
+                    if (typeof data != 'string') {
+                        alert('传输数据格式应为字符串');
+                    } else {
+                        PhoneBook.getData(data);
+                        setTimeout(function(){
+                                   PhoneBook.renderItemCheckPoint();
+                                   }, timeout);
+                    }
+                },
+                getData : function(data){
+                    var dataObj = $.parseJSON(data) || {};
+                    if(dataObj.uuid){
+                        this.uuid = dataObj.uuid;
+                    }
+                    if(dataObj.data){
+                        CheckData =  dataObj.data;
+                        this.initGotoAreaPage();
+                        this.initGotoChinaPage();
+                        // console.log(dataObj.data);
+                        // console.log(CheckData);
+                    }
+                },
+                initGotoAreaPage:function(){
+                    // 如果网络连接正常
+                    if(parseInt(CheckData.checkpoint)){
+                        $("#gotoAreaPage").attr("href","javascript:;").click(function(){
+                                                                             
+                                                                             window.location.href="http://dianhua.qq.com/cgi-bin/readtemplate?t=dianhuaben_network_area&from=app";
+                                                                             
+                                                                             });
+                    }
+                    // 如果网络连接不正常
+                    else{
+                        $("#gotoAreaPage").attr("href","javascript:;").click(function(){
+                                                                             PhoneBook.renderNetworkError(1);
+                                                                             });
+                    }
+                },
+
+                initGotoChinaPage:function(){
+                    // 如果网络连接正常
+                    if(parseInt(CheckData.checkpoint)){
+                        $("#gotoChinaPage").attr("href","javascript:;").click(function(){
+                                                                             
+                                                                             window.location.href="http://dianhua.qq.com/cgi-bin/readtemplate?t=dianhuaben_network_china&from=app";
+                                                                             
+                                                                             });
+                    }
+                    // 如果网络连接不正常
+                    else{
+                        $("#gotoChinaPage").attr("href","javascript:;").click(function(){
+                                                                             PhoneBook.renderNetworkError(2);
+                                                                             });
+                    }
+                },
+                renderItemCheckPoint : function(){
+                    var item = $("#itemCheckPoint");
+                    var itemLabel = item.children(".mod-check__item-text");
+                    item.fadeIn("slow");
+                    setTimeout(function(){
+                               if(parseInt(CheckData.checkpoint)){
+                               item.addClass("ok");
+                               itemLabel.html("接入点检查成功！");
+                               PhoneBook.renderItemCheckAccess();
+                               }
+                               else{
+                               item.addClass("error");
+                               itemLabel.html("接入点检查失败！");
+                               PhoneBook.renderItemCheckScore();
+                               }
+                               
+                               }, timeout);
+                               
+                },
+                renderItemCheckDNS:function(){
+                    var item = $("#itemDNS");
+                    var itemLabel = item.children(".mod-check__item-text");
+                    item.fadeIn("slow");
+                    setTimeout(function(){
+                               if(CheckData.dns){
+                               item.addClass("ok");
+                               itemLabel.html("域名解析设置成功！");
+                               }
+                               else{
+                               item.addClass("error");
+                               itemLabel.html("域名解析设置失败！");
+                               }
+                               PhoneBook.renderItemCheckAccess();
+                               }, timeout);
+                },
+                renderItemCheckAccess:function(){
+                    var item = $("#itemAccess");
+                    var itemLabel = item.children(".mod-check__item-text");
+                    item.fadeIn("slow");
+                    setTimeout(function(){
+                               if(parseInt(CheckData.access)){
+                               item.addClass("ok");
+                               itemLabel.html("信令通道检查成功！");
+                               }
+                               else{
+                               item.addClass("error");
+                               itemLabel.html("信令通道检查失败！");
+                               }
+                               PhoneBook.renderItemCheckTransfer();
+                               }, timeout);
+                },
+                renderItemCheckTransfer:function(){
+                    var item = $("#itemTransfer");
+                    var itemLabel = item.children(".mod-check__item-text");
+                    item.fadeIn("slow");
+                    setTimeout(function(){
+                               if(parseInt(CheckData.transfer)){
+                               item.addClass("ok");
+                               itemLabel.html("语音通道检查成功！");
+                               }
+                               else{
+                               item.addClass("error");
+                               itemLabel.html("语音通道检查失败！");
+                               }
+                               setTimeout(function() {
+                                          PhoneBook.renderItemCheckScore();
+                                          }, timeout);
+                               }, timeout);
+                },
+                renderItemCheckScore:function(){
+                    var elementCheck = $(".mod-check");
+                    var elementScore = $(".mod-check__title-score");
+                    var elementIntro = $(".mod-check__intro");
+                    
+                    if(parseInt( CheckData.score ) == 0){
+                        elementIntro.html("当前无网络");
+                        elementCheck.removeClass("mod-check_loading").addClass("mod-check_bad");
+                    }
+                    else if(parseInt( CheckData.score )  >= 90){
+                        elementIntro.html("网络很棒");
+                        elementCheck.removeClass("mod-check_loading").addClass("mod-check_good");
+                    }
+                    else if(parseInt( CheckData.score )  >= 70){
+                        elementIntro.html("网络正常");
+                        elementCheck.removeClass("mod-check_loading").addClass("mod-check_good");
+                    }
+                    else{
+                        elementIntro.html("网络不稳定");
+                        elementCheck.removeClass("mod-check_loading").addClass("mod-check_bad");
+                    }
+                    elementScore.html(CheckData.score);
+                    $(".mod-check__placeholder").remove();
+                    $(".mod-check__result").fadeIn("slow");
+                    PhoneBook.renderEndLoading();
+                },
+                renderEndLoading:function(){
+                    $(".mod-check__circle-mask").removeClass("animate");
+                    if(!$(".mod-check").is(":hidden")){
+                        setTimeout(function() {
+                            if(parseInt(CheckData.checkpoint)){
+                                $("#operateBar").fadeIn();    
+                            }    
+                           $('.reload-btn').fadeIn();
+                           $('.mod-copyright').fadeIn();
+                        }, timeout);
+                    }
+                    
+                    
+                },
+                renderTabCheck:function(){
+                    if(!$($(".mod-tab__item")[0]).hasClass("mod-tab__item_active")){
+                        this.switchTab(0);
+                        $(".mod-network-error").hide();
+                        $("#containerCheck").show();    
+                    }
+                    
+                },
+                renderNetworkError:function(index){
+                    this.switchTab(index);
+                    $("#containerCheck").hide();
+                    $("#operateBar").hide();
+                    $('.reload-btn').hide();
+                    $(".mod-network-error").show();
+                    
+                },
+                switchTab:function(index){
+                    $(".mod-tab__item").removeClass("mod-tab__item_active");
+                    $($(".mod-tab__item")[index]).addClass("mod-tab__item_active");
+                },
+            
+                uaIs: function () {
+                    var ua = navigator.userAgent;
+                    var checker = {
+                        ios: ua.match(/(iPhone|iPod|iPad)/),
+                        android: ua.match(/Android/)
+                    };
+                    return checker;
+                }
+                
+            }
+        
+        
+        //android ios 捕获事件使用
+        location.href = 'pbjs://loadcomplete';
+        
+        // 调用
+        // PhoneBook.checknetwork(objectString);
+        
+        
+        //////////////////////////////////////////////
+        //
+        // 分享的代码
+        //
+        //////////////////////////////////////////////
+        
+        
+        
+        $('#moments_btn').on('click', function(){
+         //分享到朋友圈
+            App.shareToMoment("微信电话本免费通话诊断结果", location.href, "微信电话本网络测速");
+         
+         });
+         var fallbackApp = null;
+         var cliver = CheckData.cliver;
+         var platform = CheckData.platform;
+         
+         var highVersionAndroidApp = {
+             shareToFriend:function(title,url,desc){
+                 console.log(["shareToFriend",title,url,desc].join("^"));
+             },
+             shareToMoment:function(title,url,desc){
+                 console.log(["shareToMoment",title,url,desc].join("^"));
+             }
+         };
+        
+        var iosApp = {
+            shareToFriend: function (title, url, desc) {
+                location.href = "sharecalllog://dianhua.qq.com/?type=friend&title=" + encodeURIComponent("微信电话本网络测速") + "&url=" + "$link_friend.DATA$" + "&desc=" + encodeURIComponent("$desc.DATA$");
+            },
+            shareToMoment: function (title, url, desc) {
+                location.href = "sharecalllog://dianhua.qq.com/?type=moment&title=" + encodeURIComponent(title) + "&url=" + encodeURIComponent(url) + "&desc=" + encodeURIComponent(desc);
+            }
+        };
+        
+        
+        var ua = PhoneBook.uaIs();
+
+        //当前是安卓平台
+        if(ua.android){
+            fallbackApp = highVersionAndroidApp;
+        }else{
+            fallbackApp = iosApp;
+        }
+        
+        window.App = window.App || fallbackApp;
+        
+    </script>
+        
+</body>
+</html>
