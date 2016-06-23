@@ -1,4 +1,4 @@
-package com.webwalker.appdemo;
+package com.webwalker.appdemo.web;
 
 import android.app.IntentService;
 import android.content.Intent;

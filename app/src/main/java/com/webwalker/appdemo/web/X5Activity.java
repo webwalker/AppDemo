@@ -1,4 +1,4 @@
-package com.webwalker.appdemo;
+package com.webwalker.appdemo.web;
 
 import android.app.Activity;
 import android.net.http.SslError;
@@ -11,6 +11,9 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.webwalker.appdemo.MainActivity;
+import com.webwalker.appdemo.R;
 
 public class X5Activity extends Activity {
     WebView wv;

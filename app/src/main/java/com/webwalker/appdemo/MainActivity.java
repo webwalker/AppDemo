@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.tencent.smtt.sdk.QbSdk;
+import com.webwalker.appdemo.web.FirstLoadingX5Service;
+import com.webwalker.appdemo.web.X5Activity;
 
 public class MainActivity extends BaseActivity {
 	public static long startTime;

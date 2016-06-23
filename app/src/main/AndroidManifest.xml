@@ -31,9 +31,9 @@
         <activity
             android:name="com.webwalker.framework.system.log.DebugActivity"
             android:label="@string/title_activity_debug"></activity>
-        <activity android:name=".X5Activity"></activity>
+        <activity android:name=".web.X5Activity"></activity>
         <service
-            android:name=".FirstLoadingX5Service"
+            android:name=".web.FirstLoadingX5Service"
             android:process=":ymtservice" />
     </application>
 
