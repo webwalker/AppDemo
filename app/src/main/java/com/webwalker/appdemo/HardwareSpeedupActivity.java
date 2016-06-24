@@ -5,6 +5,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import com.webwalker.appdemo.common.Urls;
 import com.webwalker.appdemo.web.MyWebChromeClient;
@@ -12,6 +13,7 @@ import com.webwalker.appdemo.web.MyWebViewClient;
 import com.webwalker.framework.widget.web.WebViewUtils;
 
 public class HardwareSpeedupActivity extends BaseActivity {
+    WebView wv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

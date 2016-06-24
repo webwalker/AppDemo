@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 
 import com.webwalker.appdemo.common.Urls;
@@ -13,6 +14,7 @@ import com.webwalker.framework.utils.FileUtil;
 import com.webwalker.framework.widget.web.WebViewUtils;
 
 public class NormalActivity extends BaseActivity {
+    WebView wv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
