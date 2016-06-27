@@ -6,6 +6,7 @@ import android.widget.EditText;
 
 import com.webwalker.appdemo.BaseActivity;
 import com.webwalker.appdemo.R;
+import com.webwalker.framework.utils.MessageUtil;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -49,7 +50,7 @@ public class WebViewActivity extends BaseActivity {
                 .build();
         final OkHttpClient client = new OkHttpClient.Builder()
                 .followSslRedirects(true)
-                //.protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1, Protocol.SPDY_3))
+                .protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1, Protocol.SPDY_3))
                 //.connectionSpecs(Collections.singletonList(spec))
                 .retryOnConnectionFailure(true)
                 .connectTimeout(25, TimeUnit.SECONDS)
@@ -67,9 +68,16 @@ public class WebViewActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(Call call, final Response response) throws IOException {
                 System.out.println(response.protocol());
                 System.out.println(response.body().string());
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        MessageUtil.showShortToast(WebViewActivity.this, response.protocol() + "");
+                    }
+                });
             }
         });
     }
