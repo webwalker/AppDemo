@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.webwalker.test;
+package webwalker.test;
 
 import java.io.File;
 

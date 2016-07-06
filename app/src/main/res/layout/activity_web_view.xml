@@ -5,24 +5,22 @@
     <RelativeLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
 
         <EditText
             android:id="@+id/etUrl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/llButton"
+            android:layout_height="50dp"
             android:background="@null"
             android:singleLine="true"
-            android:text="https://http2.akamai.com/demo" />
+            android:text="https://http2.akamai.com" />
 
         <LinearLayout
             android:id="@+id/llButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true">
+            android:layout_below="@+id/etUrl">
 
             <Button
                 android:id="@+id/btnOpen"
