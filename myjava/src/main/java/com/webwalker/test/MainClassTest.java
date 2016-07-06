@@ -8,8 +8,6 @@ import java.util.List;
  */
 public class MainClassTest {
     public static void main(String[] args) {
-        System.out.print(".....");
-
         final List<String> domains = new ArrayList<>();
         domains.add("www.ymatou.com");
         domains.add("app.ymatou.com");

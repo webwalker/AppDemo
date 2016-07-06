@@ -13,16 +13,16 @@ public class TimerDnsPolicy {
     private static final ConcurrentHashMap<String, DnsDomain> domains = new ConcurrentHashMap<>();
 
     public void resolve(String domainName) {
-        Log("resolve [" + domainName + "]");
+        Log("--------------waiting<" + domainName + ">----------------");
         if (!domains.containsKey(domainName)) {
-            Log("init dns [" + domainName + "]");
+            Log("init dns >>> [" + domainName + "]");
             parseDomain(domainName);
             return;
         }
         DnsDomain domain = domains.get(domainName);
         long timeDiff = System.currentTimeMillis() - domain.lastResolveTime;
         if (timeDiff >= resolveInterval) {
-            Log("update dns [" + domainName + "]");
+            Log("update dns >>> [" + domainName + "]");
             parseDomain(domainName);
         }
     }
@@ -59,6 +59,7 @@ public class TimerDnsPolicy {
 
     private void Log(String msg) {
         System.out.print(msg);
+        System.out.println();
         //Log.d(TAG, msg);
     }
 
