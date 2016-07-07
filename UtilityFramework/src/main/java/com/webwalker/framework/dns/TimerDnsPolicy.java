@@ -4,6 +4,8 @@ import android.util.Log;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -11,20 +13,24 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class TimerDnsPolicy {
     private int resolveInterval = 1 * 60 * 1000; //10分钟
-    private final String TAG = "Dns";
     private static final ConcurrentHashMap<String, DnsDomain> domains = new ConcurrentHashMap<>();
 
+    public static String formatCurrentDate(String format) {
+        String date = new SimpleDateFormat(format).format(new Date());
+        return date;
+    }
+
     public void resolve(String domainName) {
-        Log("resolve [" + domainName + "]");
+        Log("--------------waiting<" + domainName + ">----------------");
         if (!domains.containsKey(domainName)) {
-            Log("init dns [" + domainName + "]");
+            Log("init dns >>> [" + domainName + "]" + formatCurrentDate("yyyy-MM-dd HH:mm:ss"));
             parseDomain(domainName);
             return;
         }
         DnsDomain domain = domains.get(domainName);
         long timeDiff = System.currentTimeMillis() - domain.lastResolveTime;
         if (timeDiff >= resolveInterval) {
-            Log("update dns [" + domainName + "]");
+            Log("update dns >>> [" + domainName + "]" + formatCurrentDate("yyyy-MM-dd HH:mm:ss"));
             parseDomain(domainName);
         }
     }
@@ -61,6 +67,7 @@ public class TimerDnsPolicy {
 
     private void Log(String msg) {
         System.out.print(msg);
+        System.out.println();
         //Log.d(TAG, msg);
     }
 
