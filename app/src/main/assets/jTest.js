@@ -356,8 +356,24 @@
     }
 
     jTest.similarProduct = function(){
+        //有则传，无则不传，必需的参数信息：id、pic、description、price
         ymt.similarProduct({
-            productId:"c8dada49-6e39-421d-8250-609385724fb6" //商品Id
+            id:"", //商品id
+            pic:"", //商品图片
+            productType:3, // 商品平台   1:扫货  2:现货  3:活动
+            deliveryType:0, //发货类型： 0未知 1国内  2直邮   3贝海直邮  4卖家保税 5贝海保税 6第三方认证直邮 7拼邮
+            tariffType:0, //0：不包邮不包税 1:包邮 2:包税 3:包邮包税
+            refundType:0, // 0不支持 1官方  2非官方
+            description:"", //商品描述
+            price:100, //商品价格
+            priceType:0, //价格类型 0普通 1新人价 2VIP价   3运营活动价  4关注可享VIP
+            remainStock:0, // 剩余库存
+        });
+    }
+
+    jTest.similarTopic = function(){
+        ymt.similarTopic({
+            topicId:"c8dada49-6e39-421d-8250-609385724fb6" //主题Id
         });
     }
 

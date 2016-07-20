@@ -58,6 +58,7 @@
         bindMobile: bindMobile,
         couponProducts: couponProducts,
         similarProduct: similarProduct,
+        similarTopic: similarTopic,
         //事件接口
         listenPageEvent: listenPageEvent,
         //系统接口
@@ -236,6 +237,8 @@
     function couponProducts(data) { execute2('couponProducts', data); }
 
     function similarProduct(data) { execute2('similarProduct', data); }
+
+    function similarTopic(data) { execute2('similarTopic', data); }
 
     function listenPageEvent(data) { execute2('listenPageEvent', data); }
 
