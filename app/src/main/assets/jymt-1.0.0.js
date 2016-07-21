@@ -59,6 +59,7 @@
         couponProducts: couponProducts,
         similarProduct: similarProduct,
         similarTopic: similarTopic,
+        search: search,
         //事件接口
         listenPageEvent: listenPageEvent,
         //系统接口
@@ -239,6 +240,8 @@
     function similarProduct(data) { execute2('similarProduct', data); }
 
     function similarTopic(data) { execute2('similarTopic', data); }
+
+    function search(data) { execute2('search', data); }
 
     function listenPageEvent(data) { execute2('listenPageEvent', data); }
 

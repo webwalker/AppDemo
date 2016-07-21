@@ -377,6 +377,12 @@
         });
     }
 
+    jTest.search = function(){
+        ymt.search({
+            keys:["a","b","c"]
+        });
+    }
+
     jTest.tabHome = function(){
         ymt.tabHome({
             name:"jyh",
