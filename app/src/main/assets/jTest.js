@@ -100,10 +100,7 @@
                 hide:["SinaWeibo"]
             },
             msgIcon:1, //是否显示消息图标
-            moreIcon:[{ //其他更多的菜单项功能待扩展
-                title:"显示的标题", //如聚洋货
-                url:"http://www.baidu.com" //点击后返回的地址
-            }]
+            cartIcon:1
         });
     }
 

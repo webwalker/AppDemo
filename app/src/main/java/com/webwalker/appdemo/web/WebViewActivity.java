@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.EditText;
 
-import com.webwalker.appdemo.BaseActivity;
+import com.webwalker.appdemo.activity.BaseActivity;
 import com.webwalker.appdemo.R;
 import com.webwalker.framework.utils.MessageUtil;
 

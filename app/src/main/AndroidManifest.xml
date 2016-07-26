@@ -26,10 +26,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HardwareSpeedupActivity"
+            android:name=".activity.HardwareSpeedupActivity"
             android:label="@string/title_activity_hardware_speedup" />
         <activity
-            android:name=".NormalActivity"
+            android:name=".activity.NormalActivity"
             android:label="@string/title_activity_normal" />
         <activity
             android:name="com.webwalker.framework.system.log.DebugActivity"
@@ -43,7 +43,8 @@
         <activity
             android:name=".web.WebViewActivity"
             android:label="@string/title_activity_web_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.JniActivity"></activity>
     </application>
 
 </manifest>

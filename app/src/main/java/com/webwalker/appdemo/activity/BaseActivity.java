@@ -1,4 +1,4 @@
-package com.webwalker.appdemo;
+package com.webwalker.appdemo.activity;
 
 import com.webwalker.framework.common.BaseFrameworkActivity;
 import android.os.Bundle;

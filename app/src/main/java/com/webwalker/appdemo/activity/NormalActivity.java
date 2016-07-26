@@ -1,4 +1,4 @@
-package com.webwalker.appdemo;
+package com.webwalker.appdemo.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +7,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 
+import com.webwalker.appdemo.R;
 import com.webwalker.appdemo.common.Urls;
 import com.webwalker.appdemo.web.MyWebChromeClient;
 import com.webwalker.appdemo.web.MyWebViewClient;
