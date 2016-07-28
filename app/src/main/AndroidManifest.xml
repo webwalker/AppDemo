@@ -44,7 +44,10 @@
             android:name=".web.WebViewActivity"
             android:label="@string/title_activity_web_view"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.JniActivity"></activity>
+        <activity android:name=".activity.JniActivity" />
+        <activity android:name=".activity.AesActivity" />
+        <activity android:name=".activity.AesRsaActivity" />
+        <activity android:name=".activity.TempActivity"></activity>
     </application>
 
 </manifest>
