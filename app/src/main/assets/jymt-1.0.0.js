@@ -33,6 +33,7 @@
         //支付接口
         pay: pay,
         notifyPay: notifyPay,
+        orderDetail: orderDetail,
         //分享接口
         share: share,
         //评论接口
@@ -45,6 +46,9 @@
         activityPartnerList: activityPartnerList,
         noteBrand: noteBrand,
         noteType: noteType,
+        countryList: countryList,
+        fansUserList: fansUserList,
+        followUserList: followUserList,
         //消息接口
         showMsgIcon: showMsgIcon,
         onlineService: onlineService,
@@ -197,6 +201,8 @@
 
     function pay(data) { execute2('pay', data); }
 
+    function orderDetail(data) { execute2('orderDetail', data); }
+
     function notifyPay(data) { execute2('notifyPay', data); }
 
     function share(data) { execute2('share', data); }
@@ -216,6 +222,12 @@
     function noteBrand() { execute2('noteBrand', ''); }
 
     function noteType(data) { execute2('noteType', data); }
+
+    function countryList() { execute2('countryList', ''); }
+
+    function followUserList(data) { execute2('followUserList', data); }
+
+    function fansUserList(data) { execute2('fansUserList', data); }
 
     function showMsgIcon() { execute2('showMsgIcon', ''); }
 

@@ -195,6 +195,12 @@
         });
     }
 
+    jTest.orderDetail = function(){
+        ymt.orderDetail({
+            orderId:"1000000001" //订单编号
+        });
+    }
+
     jTest.share = function(){
         ymt.share({
             title: "标题",
@@ -263,6 +269,22 @@
     jTest.noteType = function(data){
         ymt.noteType({
             noteType:data
+        });
+    }
+
+    jTest.countryList = function(){
+        ymt.countryList();
+    }
+
+    jTest.fansUserList = function(){
+        ymt.fansUserList({
+            userId:'4081'
+        });
+    }
+
+    jTest.followUserList = function(){
+        ymt.followUserList({
+            userId:'4081'
         });
     }
 
