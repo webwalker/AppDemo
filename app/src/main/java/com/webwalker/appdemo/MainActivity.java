@@ -8,10 +8,8 @@ import android.widget.EditText;
 
 import com.tencent.smtt.sdk.QbSdk;
 import com.webwalker.appdemo.activity.BaseActivity;
-import com.webwalker.appdemo.activity.JniActivity;
 import com.webwalker.appdemo.activity.TempActivity;
 import com.webwalker.appdemo.web.FirstLoadingX5Service;
-import com.webwalker.appdemo.web.WebViewActivity;
 import com.webwalker.appdemo.web.X5Activity;
 
 public class MainActivity extends BaseActivity {
@@ -43,12 +41,16 @@ public class MainActivity extends BaseActivity {
                 openWeb();
             }
         });
-        openWeb();
+        init();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    private void init() {
+        //openWeb();
     }
 
     private void openWeb() {
