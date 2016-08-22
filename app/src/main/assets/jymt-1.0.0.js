@@ -34,6 +34,7 @@
         pay: pay,
         notifyPay: notifyPay,
         orderDetail: orderDetail,
+        withdraw: withdraw,
         //分享接口
         share: share,
         //评论接口
@@ -202,6 +203,8 @@
     function pay(data) { execute2('pay', data); }
 
     function orderDetail(data) { execute2('orderDetail', data); }
+
+    function withdraw() { execute2('withdraw', ''); }
 
     function notifyPay(data) { execute2('notifyPay', data); }
 
