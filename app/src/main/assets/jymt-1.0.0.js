@@ -32,6 +32,7 @@
         uploadImage: uploadImage,
         //支付接口
         pay: pay,
+        order: order,
         notifyPay: notifyPay,
         orderDetail: orderDetail,
         withdraw: withdraw,
@@ -201,6 +202,8 @@
     function uploadImage(data) { execute2('uploadImage', data); }
 
     function pay(data) { execute2('pay', data); }
+
+    function order(data) { execute2('order', data); }
 
     function orderDetail(data) { execute2('orderDetail', data); }
 
