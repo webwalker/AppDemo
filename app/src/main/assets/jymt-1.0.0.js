@@ -21,6 +21,7 @@
         titleBar: titleBar,
         bottomBar: bottomBar,
         pageRefreshType: pageRefreshType,
+        attach: attach,
         //用户接口
         userLogin: userLogin,
         getLoginStatus: getLoginStatus,
@@ -186,6 +187,8 @@
     function bottomBar(data) { execute2('bottomBar', data); }
 
     function pageRefreshType(data) { execute2('pageRefreshType', data); }
+
+    function attach(data) { execute2('attach', data); }
 
     function userLogin() { execute2('userLogin', ''); }
 
