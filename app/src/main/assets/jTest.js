@@ -100,7 +100,9 @@
                 hide:["SinaWeibo"]
             },
             msgIcon:1, //是否显示消息图标
-            cartIcon:1
+            cartIcon:1,
+            reportIcon:1,
+            editIcon:1
         });
     }
 
@@ -122,6 +124,10 @@
 
     jTest.pageRefreshType = function(){
         ymt.pageRefreshType({refreshType:1}); //1刷新当前页，0默认刷新回到首页
+    }
+
+    jTest.attach = function(){
+        ymt.attach({type:1, data:{}});
     }
 
     jTest.userLogin = function(){
@@ -186,6 +192,22 @@
         });
     }
 
+    //下单
+    jTest.order = function(){
+        ymt.order({
+            payMode:0, //支付方式，0全款,1定金
+            orders:[{
+                        skuId:"", //productId、catalogId, 选好的SkuId
+                        count:1, //购买数量
+                        price:100.1, //下单的商品单价
+                    },{
+                        skuId:"",
+                        count:1,
+                        price:100.1,
+                    }]
+        });
+    }
+
     jTest.notifyPay = function(){
         ymt.notifyPay({
             orderId:"10000000001", //目前可为空
@@ -199,6 +221,10 @@
         ymt.orderDetail({
             orderId:"1000000001" //订单编号
         });
+    }
+
+    jTest.withdraw = function(){
+        ymt.withdraw();
     }
 
     jTest.share = function(){
