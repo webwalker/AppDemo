@@ -34,6 +34,7 @@
         //支付接口
         pay: pay,
         order: order,
+        orderPackage: orderPackage,
         notifyPay: notifyPay,
         orderDetail: orderDetail,
         withdraw: withdraw,
@@ -67,6 +68,8 @@
         similarProduct: similarProduct,
         similarTopic: similarTopic,
         search: search,
+        promotionProduct: promotionProduct,
+        topicDetail: topicDetail,
         //事件接口
         listenPageEvent: listenPageEvent,
         //系统接口
@@ -210,6 +213,8 @@
 
     function orderDetail(data) { execute2('orderDetail', data); }
 
+    function orderPackage(data) { execute2('orderPackage', data); }
+
     function withdraw() { execute2('withdraw', ''); }
 
     function notifyPay(data) { execute2('notifyPay', data); }
@@ -263,6 +268,10 @@
     function similarTopic(data) { execute2('similarTopic', data); }
 
     function search(data) { execute2('search', data); }
+
+    function promotionProduct(data) { execute2('promotionProduct', data); }
+
+    function topicDetail(data) { execute2('topicDetail', data); }
 
     function listenPageEvent(data) { execute2('listenPageEvent', data); }
 
