@@ -72,6 +72,7 @@
         topicDetail: topicDetail,
         //事件接口
         listenPageEvent: listenPageEvent,
+        notifyEvent: notifyEvent,
         //系统接口
         getDeviceInfo: getDeviceInfo,
         callPhone: callPhone,
@@ -274,6 +275,8 @@
     function topicDetail(data) { execute2('topicDetail', data); }
 
     function listenPageEvent(data) { execute2('listenPageEvent', data); }
+
+    function notifyEvent(data) { execute2('notifyEvent', data); }
 
     function getDeviceInfo(data) { execute2('getDeviceInfo', data); }
 
