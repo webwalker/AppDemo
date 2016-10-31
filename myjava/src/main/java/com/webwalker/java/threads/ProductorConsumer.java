@@ -4,19 +4,19 @@
 package com.webwalker.java.threads;
 
 /**
- * @author Administrator ç”Ÿäº§è€…æ¶ˆè´¹è€… æ— åŒæ­¥å‰ï¼Œ ç”Ÿäº§æ¶ˆè´¹éžå¸¸ä¹±ï¼Œ å±žæ€§äº¤å‰ å³ä¾¿å¢žåŠ äº†, çº¿ç¨‹åŒæ­¥ä¹Ÿä¼šäº§ç”Ÿé—®é¢˜ï¼š
- *         1ã€ç”Ÿäº§è€…å¤šç”Ÿäº§äº†æ•°æ® 2ã€æ¶ˆè´¹è€…å¤šå–äº†æ•°æ®
+ * @author Administrator Éú²úÕßÏû·ÑÕß ÎÞÍ¬²½Ç°£¬ Éú²úÏû·Ñ·Ç³£ÂÒ£¬ ÊôÐÔ½»²æ ¼´±ãÔö¼ÓÁË, Ïß³ÌÍ¬²½Ò²»á²úÉúÎÊÌâ£º
+ *         1¡¢Éú²úÕß¶àÉú²úÁËÊý¾Ý 2¡¢Ïû·ÑÕß¶àÈ¡ÁËÊý¾Ý
  */
 public class ProductorConsumer implements ITester {
 
 	/**
-	 * ç”Ÿäº§è€…-æ¶ˆè´¹è€…ï¼ˆproducer-consumerï¼‰é—®é¢˜ï¼Œä¹Ÿç§°ä½œæœ‰ç•Œç¼“å†²åŒºï¼ˆbounded-bufferï¼‰é—®é¢˜ï¼Œ
-	 * ä¸¤ä¸ªè¿›ç¨‹å…±äº«ä¸€ä¸ªå…¬å…±çš„å›ºå®šå¤§å°çš„ç¼“å†²åŒº
-	 * ã€‚å…¶ä¸­ä¸€ä¸ªæ˜¯ç”Ÿäº§è€…ï¼Œç”¨äºŽå°†æ¶ˆæ¯æ”¾å…¥ç¼“å†²åŒºï¼›å¦å¤–ä¸€ä¸ªæ˜¯æ¶ˆè´¹è€…ï¼Œç”¨äºŽä»Žç¼“å†²åŒºä¸­å–å‡ºæ¶ˆæ¯ã€‚é—®é¢˜å‡ºçŽ°åœ¨å½“ç¼“å†²åŒºå·²ç»æ»¡äº†
-	 * ï¼Œè€Œæ­¤æ—¶ç”Ÿäº§è€…è¿˜æƒ³å‘å…¶ä¸­æ”¾å…¥ä¸€ä¸ªæ–°çš„æ•°æ®é¡¹çš„æƒ…å½¢
-	 * ï¼Œå…¶è§£å†³æ–¹æ³•æ˜¯è®©ç”Ÿäº§è€…æ­¤æ—¶è¿›è¡Œä¼‘çœ ï¼Œç­‰å¾…æ¶ˆè´¹è€…ä»Žç¼“å†²åŒºä¸­å–èµ°äº†ä¸€ä¸ªæˆ–è€…å¤šä¸ªæ•°æ®åŽå†åŽ»å”¤é†’å®ƒã€‚åŒæ ·åœ°ï¼Œ
-	 * å½“ç¼“å†²åŒºå·²ç»ç©ºäº†ï¼Œè€Œæ¶ˆè´¹è€…è¿˜æƒ³åŽ»å–æ¶ˆæ¯ï¼Œæ­¤æ—¶ä¹Ÿå¯ä»¥è®©æ¶ˆè´¹è€…è¿›è¡Œä¼‘çœ ï¼Œç­‰å¾…ç”Ÿäº§è€…æ”¾å…¥ä¸€ä¸ªæˆ–è€…å¤šä¸ªæ•°æ®æ—¶å†å”¤é†’å®ƒã€‚
-	 * ä¸€ï¼Œé¦–å…ˆå®šä¹‰å…¬å…±èµ„æºç±»ï¼Œå…¶ä¸­çš„å˜é‡numberæ˜¯ä¿å­˜çš„å…¬å…±æ•°æ®ã€‚å¹¶ä¸”å®šä¹‰ä¸¤ä¸ªæ–¹æ³•ï¼Œå¢žåŠ numberçš„å€¼å’Œå‡å°‘numberçš„å€¼
+	 * Éú²úÕß-Ïû·ÑÕß£¨producer-consumer£©ÎÊÌâ£¬Ò²³Æ×÷ÓÐ½ç»º³åÇø£¨bounded-buffer£©ÎÊÌâ£¬
+	 * Á½¸ö½ø³Ì¹²ÏíÒ»¸ö¹«¹²µÄ¹Ì¶¨´óÐ¡µÄ»º³åÇø
+	 * ¡£ÆäÖÐÒ»¸öÊÇÉú²úÕß£¬ÓÃÓÚ½«ÏûÏ¢·ÅÈë»º³åÇø£»ÁíÍâÒ»¸öÊÇÏû·ÑÕß£¬ÓÃÓÚ´Ó»º³åÇøÖÐÈ¡³öÏûÏ¢¡£ÎÊÌâ³öÏÖÔÚµ±»º³åÇøÒÑ¾­ÂúÁË
+	 * £¬¶ø´ËÊ±Éú²úÕß»¹ÏëÏòÆäÖÐ·ÅÈëÒ»¸öÐÂµÄÊý¾ÝÏîµÄÇéÐÎ
+	 * £¬Æä½â¾ö·½·¨ÊÇÈÃÉú²úÕß´ËÊ±½øÐÐÐÝÃß£¬µÈ´ýÏû·ÑÕß´Ó»º³åÇøÖÐÈ¡×ßÁËÒ»¸ö»òÕß¶à¸öÊý¾ÝºóÔÙÈ¥»½ÐÑËü¡£Í¬ÑùµØ£¬
+	 * µ±»º³åÇøÒÑ¾­¿ÕÁË£¬¶øÏû·ÑÕß»¹ÏëÈ¥È¡ÏûÏ¢£¬´ËÊ±Ò²¿ÉÒÔÈÃÏû·ÑÕß½øÐÐÐÝÃß£¬µÈ´ýÉú²úÕß·ÅÈëÒ»¸ö»òÕß¶à¸öÊý¾ÝÊ±ÔÙ»½ÐÑËü¡£
+	 * Ò»£¬Ê×ÏÈ¶¨Òå¹«¹²×ÊÔ´Àà£¬ÆäÖÐµÄ±äÁ¿numberÊÇ±£´æµÄ¹«¹²Êý¾Ý¡£²¢ÇÒ¶¨ÒåÁ½¸ö·½·¨£¬Ôö¼ÓnumberµÄÖµºÍ¼õÉÙnumberµÄÖµ
 	 */
 	@Override
 	public void Test() {
@@ -29,7 +29,7 @@ public class ProductorConsumer implements ITester {
 	}
 
 	/**
-	 * ç”Ÿäº§è€…çº¿ç¨‹ï¼Œè´Ÿè´£ç”Ÿäº§å…¬å…±èµ„æº
+	 * Éú²úÕßÏß³Ì£¬¸ºÔðÉú²ú¹«¹²×ÊÔ´
 	 */
 	public class ProducerThread implements Runnable {
 		private PublicResource resource;
@@ -52,7 +52,7 @@ public class ProductorConsumer implements ITester {
 	}
 
 	/**
-	 * æ¶ˆè´¹è€…çº¿ç¨‹ï¼Œè´Ÿè´£æ¶ˆè´¹å…¬å…±èµ„æº
+	 * Ïû·ÑÕßÏß³Ì£¬¸ºÔðÏû·Ñ¹«¹²×ÊÔ´
 	 */
 	public class ConsumerThread implements Runnable {
 		private PublicResource resource;
@@ -75,14 +75,14 @@ public class ProductorConsumer implements ITester {
 	}
 
 	/**
-	 * å…¬å…±èµ„æºç±» åœ¨non-synchronizedå‡½æ•°æˆ–non-synchronizedã€€blockä¸­è¿›è¡Œè°ƒç”¨ï¼Œ
-	 * è™½ç„¶èƒ½ç¼–è¯‘é€šè¿‡ï¼Œä½†åœ¨è¿è¡Œæ—¶ä¼šå‘ç”ŸIllegalMonitorStateExceptionçš„å¼‚å¸¸
+	 * ¹«¹²×ÊÔ´Àà ÔÚnon-synchronizedº¯Êý»ònon-synchronized¡¡blockÖÐ½øÐÐµ÷ÓÃ£¬
+	 * ËäÈ»ÄÜ±àÒëÍ¨¹ý£¬µ«ÔÚÔËÐÐÊ±»á·¢ÉúIllegalMonitorStateExceptionµÄÒì³£
 	 */
 	public class PublicResource {
 		private int number = 0;
 
 		/**
-		 * å¢žåŠ å…¬å…±èµ„æº
+		 * Ôö¼Ó¹«¹²×ÊÔ´
 		 */
 		public synchronized void increace() {
 			while (number != 0) {
@@ -98,7 +98,7 @@ public class ProductorConsumer implements ITester {
 		}
 
 		/**
-		 * å‡å°‘å…¬å…±èµ„æº
+		 * ¼õÉÙ¹«¹²×ÊÔ´
 		 */
 		public synchronized void decreace() {
 			while (number == 0) {

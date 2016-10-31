@@ -13,14 +13,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * @author Administrator ç¨‹åºå¯åŠ¨ä¸€ä¸ªçº¿ç¨‹ï¼Œå®Œäº†ä¹‹åä¼šä¸€ä¸ªè¿”å›ç»“æœ
+ * @author Administrator ³ÌĞòÆô¶¯Ò»¸öÏß³Ì£¬ÍêÁËÖ®ºó»áÒ»¸ö·µ»Ø½á¹û
  * 
  */
 public class CallableFuture implements ITester {
 	@Override
 	public void Test() {
 		ExecutorService threadPool = Executors.newSingleThreadExecutor();
-		// Future è¡¨ç¤ºç»“æœç±»
+		// Future ±íÊ¾½á¹ûÀà
 		Future<String> future = threadPool.submit(new Callable<String>() {
 			@Override
 			public String call() throws Exception {
@@ -29,19 +29,19 @@ public class CallableFuture implements ITester {
 			}
 		});
 		System.out.println("future isDone:" + future.isDone());
-		System.out.println("ç­‰å¾…ç»“æœ");
+		System.out.println("µÈ´ı½á¹û");
 		try {
-			System.out.println("æ‹¿åˆ°ç»“æœï¼š" + future.get());
+			System.out.println("ÄÃµ½½á¹û£º" + future.get());
 			System.out.println("future isDone:" + future.isDone());
 			// future.cancel(false);
-			// System.out.println("future isCancelledï¼š" + future.isCancelled());
+			// System.out.println("future isCancelled£º" + future.isCancelled());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		// æäº¤ä¸€ç»„ä»»åŠ¡
+		// Ìá½»Ò»×éÈÎÎñ
 		ExecutorService threadPool2 = Executors.newFixedThreadPool(10);
 		CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(
 				threadPool2);
@@ -50,7 +50,7 @@ public class CallableFuture implements ITester {
 			completionService.submit(new Callable<Integer>() {
 				@Override
 				public Integer call() throws Exception {
-					// ä¸è¶…è¿‡5s, æœ€å¤š5s
+					// ²»³¬¹ı5s, ×î¶à5s
 					Thread.sleep(new Random().nextInt(5000));
 					return seq;
 				}

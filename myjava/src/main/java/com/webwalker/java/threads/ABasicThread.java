@@ -1,12 +1,12 @@
 package com.webwalker.java.threads;
 
 /**
- * ä¸€ä¸ªä¼ ç»Ÿçš„çº¿ç¨‹ç±»
+ * Ò»¸ö´«Í³µÄÏß³ÌÀà
  */
 public class ABasicThread implements ITester {
 	@Override
 	public void Test() {
-		/** ç¬¬ä¸€ç§å®ç°æ–¹å¼, é‡å†™ run æ–¹æ³• */
+		/** µÚÒ»ÖÖÊµÏÖ·½Ê½, ÖØĞ´ run ·½·¨ */
 		Thread thread = new Thread() {
 			@Override
 			public void run() {
@@ -22,7 +22,7 @@ public class ABasicThread implements ITester {
 		};
 		thread.start();
 
-		/** ç¬¬äºŒç§æ–¹å¼,å®ç°Runnable æ¥å£ */
+		/** µÚ¶şÖÖ·½Ê½,ÊµÏÖRunnable ½Ó¿Ú */
 		Thread thread2 = new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -39,9 +39,9 @@ public class ABasicThread implements ITester {
 		thread2.start();
 
 		/**
-		 * ç¬¬ä¸‰ç§æ–¹å¼,(){}è¿™ç§å†™æ³•è¡¨ç¤ºå®šä¹‰äº†ä¸€ä¸ªå­ç±»,æ­¤æ—¶()é‡Œé¢æ˜¯ç©ºçš„,ç­‰äº11è¡Œ Thread(new Runnable())
-		 * è¿™è¡¨ç¤ºåœ¨æ„é€ æ–¹æ³•ä¸­å®šä¹‰äº†ä¸€ä¸ªç±» å› æ­¤ä»£ç æ‰§è¡Œé¡ºåºï¼Œå…ˆèµ°æ‰“å° threadè¿™è¡Œï¼Œå†åˆ°æ„é€ æ–¹æ³•ä¸­è¿è¡Œ æ‰“å°runnable
-		 * ç”±äºRunnable æ˜¯çˆ¶æ¥å£ï¼Œå­ç±»å·²æœ‰runæ–¹æ³•ï¼Œä»£ç åªä¼šèµ°å­ç±»ï¼Œæ°¸è¿œä¸ä¼šèµ° æ‰“å°runnable
+		 * µÚÈıÖÖ·½Ê½,(){}ÕâÖÖĞ´·¨±íÊ¾¶¨ÒåÁËÒ»¸ö×ÓÀà,´ËÊ±()ÀïÃæÊÇ¿ÕµÄ,µÈÓÚ11ĞĞ Thread(new Runnable())
+		 * Õâ±íÊ¾ÔÚ¹¹Ôì·½·¨ÖĞ¶¨ÒåÁËÒ»¸öÀà Òò´Ë´úÂëÖ´ĞĞË³Ğò£¬ÏÈ×ß´òÓ¡ threadÕâĞĞ£¬ÔÙµ½¹¹Ôì·½·¨ÖĞÔËĞĞ ´òÓ¡runnable
+		 * ÓÉÓÚRunnable ÊÇ¸¸½Ó¿Ú£¬×ÓÀàÒÑÓĞrun·½·¨£¬´úÂëÖ»»á×ß×ÓÀà£¬ÓÀÔ¶²»»á×ß ´òÓ¡runnable
 		 */
 		new Thread(new Runnable() {
 			@Override

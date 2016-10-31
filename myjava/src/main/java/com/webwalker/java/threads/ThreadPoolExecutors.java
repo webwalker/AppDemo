@@ -16,12 +16,12 @@ public class ThreadPoolExecutors implements ITester {
 	class MyThread extends Thread {
 		@Override
 		public void run() {
-			System.out.println(Thread.currentThread().getName() + "æ­£åœ¨æ‰§è¡Œã€‚ã€‚ã€‚");
+			System.out.println(Thread.currentThread().getName() + "ÕıÔÚÖ´ĞĞ¡£¡£¡£");
 		}
 	}
 
 	/**
-	 * ExecutorServiceçš„åŠŸèƒ½æ²¡æœ‰æƒ³åƒä¸­çš„é‚£ä¹ˆå¥½ï¼Œè€Œä¸”æœ€å¤šåªæ˜¯æä¾›ä¸€ä¸ªçº¿ç¨‹çš„å®¹å™¨è€Œå·²ï¼Œ å¯ä½¿ç”¨ThreadGroupæ›¿ä»£
+	 * ExecutorServiceµÄ¹¦ÄÜÃ»ÓĞÏëÏñÖĞµÄÄÇÃ´ºÃ£¬¶øÇÒ×î¶àÖ»ÊÇÌá¹©Ò»¸öÏß³ÌµÄÈİÆ÷¶øÒÑ£¬ ¿ÉÊ¹ÓÃThreadGroupÌæ´ú
 	 */
 	@Override
 	public void Test() {
@@ -38,30 +38,30 @@ public class ThreadPoolExecutors implements ITester {
 	}
 
 	private void FixedThreadPool() {
-		// åˆ›å»ºä¸€ä¸ªå¯é‡ç”¨å›ºå®šå¤§å°çš„çº¿ç¨‹æ± 
+		// ´´½¨Ò»¸ö¿ÉÖØÓÃ¹Ì¶¨´óĞ¡µÄÏß³Ì³Ø
 		ExecutorService pool = Executors.newFixedThreadPool(2);
-		// åˆ›å»ºå®ç°äº†Runnableæ¥å£å¯¹è±¡ï¼ŒThreadå¯¹è±¡å½“ç„¶ä¹Ÿå®ç°äº†Runnableæ¥å£
+		// ´´½¨ÊµÏÖÁËRunnable½Ó¿Ú¶ÔÏó£¬Thread¶ÔÏóµ±È»Ò²ÊµÏÖÁËRunnable½Ó¿Ú
 		Thread t1 = new MyThread();
 		Thread t2 = new MyThread();
 		Thread t3 = new MyThread();
 		Thread t4 = new MyThread();
 		Thread t5 = new MyThread();
-		// å°†çº¿ç¨‹æ”¾å…¥æ± ä¸­è¿›è¡Œæ‰§è¡Œ
+		// ½«Ïß³Ì·ÅÈë³ØÖĞ½øĞĞÖ´ĞĞ
 		pool.execute(t1);
 		pool.execute(t2);
 		pool.execute(t3);
 		pool.execute(t4);
 		pool.execute(t5);
-		// å…³é—­çº¿ç¨‹æ± 
+		// ¹Ø±ÕÏß³Ì³Ø
 		pool.shutdown();
 	}
 
 	private void CachedThreadPool() {
-		// åˆ›å»ºç¼“å­˜çº¿ç¨‹æ± , ç¼“å­˜çš„çº¿ç¨‹æ± å°±æ˜¯è¯´å½“ä»»åŠ¡æ¥äº†ï¼Œç¨‹åºè¿è¡Œä¸è¿‡æ¥äº†,
-		// å°±è‡ªåŠ¨å¢åŠ æ–°çš„çº¿ç¨‹ ç¨‹åºçš„çº¿ç¨‹ä¸ªæ•°æ˜¯ä¸å®šçš„
+		// ´´½¨»º´æÏß³Ì³Ø, »º´æµÄÏß³Ì³Ø¾ÍÊÇËµµ±ÈÎÎñÀ´ÁË£¬³ÌĞòÔËĞĞ²»¹ıÀ´ÁË,
+		// ¾Í×Ô¶¯Ôö¼ÓĞÂµÄÏß³Ì ³ÌĞòµÄÏß³Ì¸öÊıÊÇ²»¶¨µÄ
 		ExecutorService threadPool = Executors.newCachedThreadPool();
 		for (int i = 0; i < 10; i++) {
-			// å¾€æ± å­é‡Œæ”¾10ä¸ªä»»åŠ¡
+			// Íù³Ø×ÓÀï·Å10¸öÈÎÎñ
 			final int task = i;
 			threadPool.execute(new Runnable() {
 				@Override
@@ -72,15 +72,15 @@ public class ThreadPoolExecutors implements ITester {
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-						System.out.print("çº¿ç¨‹: "
-								+ Thread.currentThread().getName() + "  é’ˆå¯¹ç¬¬ "
-								+ task + " æ¬¡ä»»åŠ¡" + " ç¬¬   " + j + " æ¬¡å¾ªç¯\n");
+						System.out.print("Ïß³Ì: "
+								+ Thread.currentThread().getName() + "  Õë¶ÔµÚ "
+								+ task + " ´ÎÈÎÎñ" + " µÚ   " + j + " ´ÎÑ­»·\n");
 					}
 				}
 			});
 		}
-		System.out.println("all of 10 tasks  å·²ç»å®Œæˆ!");
-		threadPool.shutdown();// å½“ä»»åŠ¡éƒ½åšå®Œäº†ï¼Œå°†çº¿ç¨‹æ± å¹²æ‰
+		System.out.println("all of 10 tasks  ÒÑ¾­Íê³É!");
+		threadPool.shutdown();// µ±ÈÎÎñ¶¼×öÍêÁË£¬½«Ïß³Ì³Ø¸Éµô
 	}
 
 	private void ScheduedThreadPool() {

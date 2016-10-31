@@ -4,7 +4,7 @@
 package com.webwalker.java.threads;
 
 /**
- * @author Administrator çº¿ç¨‹å®‰å…¨ å…±äº«å˜é‡
+ * @author Administrator Ïß³Ì°²È« ¹²Ïí±äÁ¿
  */
 public class ThreadShareVarliable implements ITester {
 
@@ -19,7 +19,7 @@ public class ThreadShareVarliable implements ITester {
 
 	Runnable r = new Runnable() {
 
-		// iè¢«å…±äº«ä½¿ç”¨
+		// i±»¹²ÏíÊ¹ÓÃ
 		int i = 100;
 
 		@Override

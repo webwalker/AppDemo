@@ -13,8 +13,8 @@ public class ThreadYield implements ITester {
 	public void Test() {
 		TestThreadMethod t1 = new TestThreadMethod("t1");
 		TestThreadMethod t2 = new TestThreadMethod("t2");
-		t1.start();// ï¼ˆ1ï¼‰
-		t2.start();// ï¼ˆ2ï¼‰
+		t1.start();// £¨1£©
+		t2.start();// £¨2£©
 	}
 
 	class TestThreadMethod extends Thread {

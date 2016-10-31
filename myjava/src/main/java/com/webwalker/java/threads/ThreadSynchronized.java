@@ -4,7 +4,7 @@
 package com.webwalker.java.threads;
 
 /**
- * @author Administrator å•çº¿ç¨‹å¤„ç†
+ * @author Administrator µ¥Ïß³Ì´¦Àí
  */
 public class ThreadSynchronized implements ITester {
 
@@ -23,17 +23,17 @@ public class ThreadSynchronized implements ITester {
 		@Override
 		public void run() {
 			while (true) {
-				// æˆ–è€…SellTicket();
+				// »òÕßSellTicket();
 				synchronized (this) {
 					if (ticketNum == 0) {
-						System.out.println("æ²¡æœ‰ç¥¨äº†");
+						System.out.println("Ã»ÓĞÆ±ÁË");
 						break;
 					} else {
 						try {
 							Thread.currentThread().sleep(1000);
 							ticketNum--;
 							System.out.println(Thread.currentThread().getName()
-									+ "å–å‡ºä¸€å¼ ï¼Œè¿˜å‰©" + ticketNum);
+									+ "Âô³öÒ»ÕÅ£¬»¹Ê£" + ticketNum);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -45,14 +45,14 @@ public class ThreadSynchronized implements ITester {
 
 		synchronized void SellTicket() {
 			if (ticketNum == 0) {
-				System.out.println("æ²¡æœ‰ç¥¨äº†");
+				System.out.println("Ã»ÓĞÆ±ÁË");
 				return;
 			} else {
 				try {
 					Thread.currentThread().sleep(1000);
 					ticketNum--;
 					System.out.println(Thread.currentThread().getName()
-							+ "å–å‡ºä¸€å¼ ï¼Œè¿˜å‰©" + ticketNum);
+							+ "Âô³öÒ»ÕÅ£¬»¹Ê£" + ticketNum);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -4,7 +4,7 @@
 package com.webwalker.java.threads;
 
 /**
- * @author Administrator çº¿ç¨‹2ç­‰å¾…çº¿ç¨‹1ç»“æŸåæ‰“å°ç»“æœ,ä¸€å®šæ„ä¹‰ä¸Šï¼Œå®ƒå¯ä»¥å®ç°åŒæ­¥çš„åŠŸèƒ½
+ * @author Administrator Ïß³Ì2µÈ´ıÏß³Ì1½áÊøºó´òÓ¡½á¹û,Ò»¶¨ÒâÒåÉÏ£¬Ëü¿ÉÒÔÊµÏÖÍ¬²½µÄ¹¦ÄÜ
  */
 public class ThreadJoin implements ITester {
 
@@ -15,7 +15,7 @@ public class ThreadJoin implements ITester {
 		Thread t = new Thread(r);
 		t.start();
 
-		System.out.println("å…¶ä»–äº‹æƒ…");
+		System.out.println("ÆäËûÊÂÇé");
 		try {
 			t.join();
 		} catch (InterruptedException e) {

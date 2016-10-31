@@ -45,7 +45,7 @@ public class LockPerformanceTest implements ITester {
 
 		@Override
 		/**    
-		 * synchronizedå…³é”®å­—ä¸åœ¨æ–¹æ³•ç­¾åé‡Œé¢ï¼Œæ‰€ä»¥ä¸æ¶‰åŠé‡è½½é—®é¢˜    
+		 * synchronized¹Ø¼ü×Ö²»ÔÚ·½·¨Ç©ÃûÀïÃæ£¬ËùÒÔ²»Éæ¼°ÖØÔØÎÊÌâ    
 		 */
 		synchronized long getValue() {
 			return super.countValue;
@@ -66,7 +66,7 @@ public class LockPerformanceTest implements ITester {
 		}
 
 		/**
-		 * synchronizedå…³é”®å­—ä¸åœ¨æ–¹æ³•ç­¾åé‡Œé¢ï¼Œæ‰€ä»¥ä¸æ¶‰åŠé‡è½½é—®é¢˜
+		 * synchronized¹Ø¼ü×Ö²»ÔÚ·½·¨Ç©ÃûÀïÃæ£¬ËùÒÔ²»Éæ¼°ÖØÔØÎÊÌâ
 		 */
 		@Override
 		long getValue() {
@@ -97,7 +97,7 @@ public class LockPerformanceTest implements ITester {
 
 		@Override
 		/**    
-		 * synchronizedå…³é”®å­—ä¸åœ¨æ–¹æ³•ç­¾åé‡Œé¢ï¼Œæ‰€ä»¥ä¸æ¶‰åŠé‡è½½é—®é¢˜    
+		 * synchronized¹Ø¼ü×Ö²»ÔÚ·½·¨Ç©ÃûÀïÃæ£¬ËùÒÔ²»Éæ¼°ÖØÔØÎÊÌâ    
 		 */
 		long getValue() {
 			return super.countValueAtmoic.get();
@@ -122,7 +122,7 @@ public class LockPerformanceTest implements ITester {
 		protected AtomicLong countValueAtmoic = new AtomicLong(0);
 		Random r = new Random(47);
 		
-		// ä»»åŠ¡æ …æ ï¼ŒåŒæ‰¹ä»»åŠ¡ï¼Œå…ˆåˆ°è¾¾waitçš„ä»»åŠ¡æŒ‚èµ·ï¼Œä¸€ç›´ç­‰åˆ°å…¨éƒ¨ä»»åŠ¡åˆ°è¾¾åˆ¶å®šçš„waitåœ°ç‚¹åï¼Œæ‰èƒ½å…¨éƒ¨å”¤é†’ï¼Œç»§ç»­æ‰§è¡Œ
+		// ÈÎÎñÕ¤À¸£¬Í¬ÅúÈÎÎñ£¬ÏÈµ½´ïwaitµÄÈÎÎñ¹ÒÆğ£¬Ò»Ö±µÈµ½È«²¿ÈÎÎñµ½´ïÖÆ¶¨µÄwaitµØµãºó£¬²ÅÄÜÈ«²¿»½ĞÑ£¬¼ÌĞøÖ´ĞĞ
 		private CyclicBarrier cb;
 
 		public TestTemplate(String _id, int _round, int _threadNum,
@@ -140,14 +140,14 @@ public class LockPerformanceTest implements ITester {
 		abstract void sumValue();
 
 		/*
-		 * å¯¹longçš„æ“ä½œæ˜¯éåŸå­çš„ï¼ŒåŸå­æ“ä½œåªé’ˆå¯¹32ä½ longæ˜¯64ä½ï¼Œåº•å±‚æ“ä½œçš„æ—¶å€™åˆ†2ä¸ª32ä½è¯»å†™ï¼Œå› æ­¤ä¸æ˜¯çº¿ç¨‹å®‰å…¨
+		 * ¶ÔlongµÄ²Ù×÷ÊÇ·ÇÔ­×ÓµÄ£¬Ô­×Ó²Ù×÷Ö»Õë¶Ô32Î» longÊÇ64Î»£¬µ×²ã²Ù×÷µÄÊ±ºò·Ö2¸ö32Î»¶ÁĞ´£¬Òò´Ë²»ÊÇÏß³Ì°²È«
 		 */
 		abstract long getValue();
 
 		public void testTime() {
 			ExecutorService se = Executors.newCachedThreadPool();
 			long start = System.nanoTime();
-			// åŒæ—¶å¼€å¯2*ThreadNumä¸ªæ•°çš„è¯»å†™çº¿ç¨‹
+			// Í¬Ê±¿ªÆô2*ThreadNum¸öÊıµÄ¶ÁĞ´Ïß³Ì
 			for (int i = 0; i < threadNum; i++) {
 				se.execute(new Runnable() {
 					public void run() {
@@ -155,7 +155,7 @@ public class LockPerformanceTest implements ITester {
 							sumValue();
 						}
 
-						// æ¯ä¸ªçº¿ç¨‹æ‰§è¡Œå®ŒåŒæ­¥æ–¹æ³•åå°±ç­‰å¾…
+						// Ã¿¸öÏß³ÌÖ´ĞĞÍêÍ¬²½·½·¨ºó¾ÍµÈ´ı
 						try {
 							cb.await();
 						} catch (InterruptedException e) {
@@ -173,7 +173,7 @@ public class LockPerformanceTest implements ITester {
 
 						getValue();
 						try {
-							// æ¯ä¸ªçº¿ç¨‹æ‰§è¡Œå®ŒåŒæ­¥æ–¹æ³•åå°±ç­‰å¾…
+							// Ã¿¸öÏß³ÌÖ´ĞĞÍêÍ¬²½·½·¨ºó¾ÍµÈ´ı
 							cb.await();
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
@@ -188,7 +188,7 @@ public class LockPerformanceTest implements ITester {
 			}
 
 			try {
-				// å½“å‰ç»Ÿè®¡çº¿ç¨‹ä¹Ÿwait,æ‰€ä»¥CyclicBarrierçš„åˆå§‹å€¼æ˜¯threadNum*2+1
+				// µ±Ç°Í³¼ÆÏß³ÌÒ²wait,ËùÒÔCyclicBarrierµÄ³õÊ¼ÖµÊÇthreadNum*2+1
 				cb.await();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -197,7 +197,7 @@ public class LockPerformanceTest implements ITester {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			// æ‰€æœ‰çº¿ç¨‹æ‰§è¡Œå®Œæˆä¹‹åï¼Œæ‰ä¼šè·‘åˆ°è¿™ä¸€æ­¥
+			// ËùÓĞÏß³ÌÖ´ĞĞÍê³ÉÖ®ºó£¬²Å»áÅÜµ½ÕâÒ»²½
 			long duration = System.nanoTime() - start;
 			System.out.println(id + " = " + duration);
 		}

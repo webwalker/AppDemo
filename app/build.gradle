@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'newlens'
 
 android {
     compileSdkVersion 23
@@ -20,17 +19,6 @@ android {
         debug {
         }
     }
-    sourceSets {
-        main {
-            /*manifest.srcFile 'src/main/AndroidManifest.xml'
-            java.srcDirs = ['src/main/java']
-            jniLibs.srcDirs = ['src/main/jniLibs']
-            res.srcDirs = ['src/main/res']
-            assets.srcDirs = ['assets']
-            resources.srcDirs = ['src/main/res']
-            assets.srcDirs = ['src/main/assets']*/
-        }
-    }
 
     compileOptions {
         /*sourceCompatibility JavaVersion.VERSION_1_7
@@ -48,7 +36,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile project(path: ':UtilityFramework')
-    compile project(path: ':Ymt')
     compile project(path: ':MyJava')
-    compile "com.networkbench.newlens.agent.android:nbs.newlens.agent:2.4.3"
 }

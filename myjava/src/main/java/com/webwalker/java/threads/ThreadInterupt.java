@@ -5,7 +5,7 @@ package com.webwalker.java.threads;
  */
 
 /**
- * @author Administrator çº¿ç¨‹ä¸­æ–­ ä¸­æ–­åç»§ç»­æ‰§è¡Œ
+ * @author Administrator Ïß³ÌÖĞ¶Ï ÖĞ¶Ïºó¼ÌĞøÖ´ĞĞ
  */
 public class ThreadInterupt implements ITester {
 
@@ -21,7 +21,7 @@ public class ThreadInterupt implements ITester {
 			System.out.println("Interrupting thread..."
 					+ thread.isInterrupted());
 			thread.interrupt();
-			System.out.println("çº¿ç¨‹æ˜¯å¦ä¸­æ–­ï¼š" + thread.isInterrupted());
+			System.out.println("Ïß³ÌÊÇ·ñÖĞ¶Ï£º" + thread.isInterrupted());
 			// Thread.sleep(3000);
 			System.out.println("Stopping application...");
 */
@@ -50,7 +50,7 @@ public class ThreadInterupt implements ITester {
 		public void run() {
 			while (!stop) {
 				System.out.println("My Thread is running...");
-				// è®©è¯¥å¾ªç¯æŒç»­ä¸€æ®µæ—¶é—´ï¼Œä½¿ä¸Šé¢çš„è¯æ‰“å°æ¬¡æ•°å°‘ç‚¹
+				// ÈÃ¸ÃÑ­»·³ÖĞøÒ»¶ÎÊ±¼ä£¬Ê¹ÉÏÃæµÄ»°´òÓ¡´ÎÊıÉÙµã
 				long time = System.currentTimeMillis();
 				while ((System.currentTimeMillis() - time < 1000)) {
 				}
@@ -64,9 +64,9 @@ public class ThreadInterupt implements ITester {
 
 			try {
 				Thread.sleep(5000);
-				System.out.println(Thread.currentThread().getName() + "æ‰§è¡Œç»“æŸ");
+				System.out.println(Thread.currentThread().getName() + "Ö´ĞĞ½áÊø");
 			} catch (InterruptedException e) {
-				System.out.println(Thread.currentThread().getName() + "å·²è¢«ä¸­æ–­");
+				System.out.println(Thread.currentThread().getName() + "ÒÑ±»ÖĞ¶Ï");
 			}
 		}
 	};

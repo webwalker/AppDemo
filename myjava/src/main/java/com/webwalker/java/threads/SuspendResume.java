@@ -13,9 +13,9 @@ public class SuspendResume implements ITester {
 	public void Test() {
 		TestThreadMethod t1 = new TestThreadMethod("t1");
 		TestThreadMethod t2 = new TestThreadMethod("t2");
-		t1.start();// ï¼ˆ5ï¼‰
-		// t1.start();ã€€//ï¼ˆ3ï¼‰
-		t2.start();// ï¼ˆ4ï¼‰
+		t1.start();// £¨5£©
+		// t1.start();¡¡//£¨3£©
+		t2.start();// £¨4£©
 	}
 
 	class TestThreadMethod extends Thread {
@@ -30,13 +30,13 @@ public class SuspendResume implements ITester {
 				for (int i = 0; i < 5; i++) {
 					shareVar++;
 					if (shareVar == 5) {
-						this.suspend();// ï¼ˆ1ï¼‰
+						this.suspend();// £¨1£©
 					}
 				}
 			} else {
 				System.out.print(Thread.currentThread().getName());
 				System.out.println(" shareVar = " + shareVar);
-				this.resume();// ï¼ˆ2ï¼‰
+				this.resume();// £¨2£©
 			}
 		}
 	}

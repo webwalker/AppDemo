@@ -10,7 +10,7 @@ package com.webwalker.java.threads;
 public class SleepLock implements ITester {
 
 	/**
-	 * t1å’Œt2æ˜¯ä¸¤ä¸ªå¯¹è±¡çš„çº¿ç¨‹ï¼Œæ‰€ä»¥å½“çº¿ç¨‹t1é€šè¿‡sleep()è¿›å…¥åœæ»æ—¶ï¼Œ æ’ç¨‹å™¨ä¼šä»çº¿ç¨‹æ± ä¸­è°ƒç”¨å…¶å®ƒçš„å¯æ‰§è¡Œçº¿ç¨‹ï¼Œ ä»è€Œt2çº¿ç¨‹è¢«å¯åŠ¨
+	 * t1ºÍt2ÊÇÁ½¸ö¶ÔÏóµÄÏß³Ì£¬ËùÒÔµ±Ïß³Ìt1Í¨¹ısleep()½øÈëÍ£ÖÍÊ±£¬ ÅÅ³ÌÆ÷»á´ÓÏß³Ì³ØÖĞµ÷ÓÃÆäËüµÄ¿ÉÖ´ĞĞÏß³Ì£¬ ´Ó¶øt2Ïß³Ì±»Æô¶¯
 	 */
 	@Override
 	public void Test() {
@@ -20,9 +20,9 @@ public class SleepLock implements ITester {
 		TestThreadMethod2 t1 = new TestThreadMethod2("t1");
 		TestThreadMethod2 t2 = new TestThreadMethod2("t2");
 		
-		t1.start();// ï¼ˆ1ï¼‰
-		// t1.start();//ï¼ˆ2ï¼‰
-		t2.start();// ï¼ˆ3ï¼‰
+		t1.start();// £¨1£©
+		// t1.start();//£¨2£©
+		t2.start();// £¨3£©
 	}
 
 	class TestThreadMethod1 extends Thread {
@@ -33,15 +33,15 @@ public class SleepLock implements ITester {
 		}
 
 		/**
-		 * è™½ç„¶åœ¨run()ä¸­æ‰§è¡Œäº†sleep()ï¼Œä½†æ˜¯å®ƒä¸ä¼šé‡Šæ”¾å¯¹è±¡çš„"é”æ ‡å¿—"ï¼Œ
-		 * æ‰€ä»¥é™¤éä»£ç (1)çš„çº¿ç¨‹æ‰§è¡Œå®Œrun()å‡½æ•°å¹¶é‡Šæ”¾å¯¹è±¡çš„"é”æ ‡å¿—" ï¼Œ å¦åˆ™ä»£ç ï¼ˆ2ï¼‰çš„çº¿ç¨‹æ°¸è¿œä¸ä¼šæ‰§è¡Œ
+		 * ËäÈ»ÔÚrun()ÖĞÖ´ĞĞÁËsleep()£¬µ«ÊÇËü²»»áÊÍ·Å¶ÔÏóµÄ"Ëø±êÖ¾"£¬
+		 * ËùÒÔ³ı·Ç´úÂë(1)µÄÏß³ÌÖ´ĞĞÍêrun()º¯Êı²¢ÊÍ·Å¶ÔÏóµÄ"Ëø±êÖ¾" £¬ ·ñÔò´úÂë£¨2£©µÄÏß³ÌÓÀÔ¶²»»áÖ´ĞĞ
 		 */
 		public synchronized void run() {
 			for (int i = 0; i < 3; i++) {
 				System.out.print(Thread.currentThread().getName());
 				System.out.println(" extends " + i);
 				try {
-					Thread.sleep(100);// ï¼ˆ4ï¼‰
+					Thread.sleep(100);// £¨4£©
 				} catch (InterruptedException e) {
 					System.out.println("Interrupted");
 				}

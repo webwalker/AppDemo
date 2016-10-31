@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * çº¿ç¨‹èŒƒå›´å†…å…±äº«å˜é‡ ç¤ºä¾‹ç¨‹åº
+ * Ïß³Ì·¶Î§ÄÚ¹²Ïí±äÁ¿ Ê¾Àı³ÌĞò
  * 
  */
 public class ThreadShareData implements ITester {
@@ -15,7 +15,7 @@ public class ThreadShareData implements ITester {
 
 	@Override
 	public void Test() {
-		// å¾ªç¯2æ¬¡ï¼Œè¡¨ç¤ºåˆ›å»º 2 ä¸ªçº¿ç¨‹
+		// Ñ­»·2´Î£¬±íÊ¾´´½¨ 2 ¸öÏß³Ì
 		for (int i = 0; i < 2; i++) {
 			new Thread(new Runnable() {
 				@Override
@@ -33,7 +33,7 @@ public class ThreadShareData implements ITester {
 
 	static class A {
 		public void get() {
-			// ä»Mapä¸­å–æ•°æ®
+			// ´ÓMapÖĞÈ¡Êı¾İ
 			int data = threadData.get(Thread.currentThread());
 			System.out.println("A from " + Thread.currentThread().getName()
 					+ " get data :" + data);

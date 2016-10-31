@@ -39,10 +39,10 @@ public class MyWebViewClient extends WebViewClient {
 			@Override
 			public void run() {
 				try {
-					String html = HttpUtil.getHtml(url);
-					Loggers.d(html);
-					FileUtil.writeFile(view.getContext().getFilesDir()
-							+ "/html.txt", html);
+//					String html = HttpUtil.getHtml(url);
+//					Loggers.d(html);
+//					FileUtil.writeFile(view.getContext().getFilesDir()
+//							+ "/html.txt", html);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

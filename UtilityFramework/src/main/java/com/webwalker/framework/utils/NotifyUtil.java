@@ -71,7 +71,7 @@ public class NotifyUtil {
 
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
 				new Intent(), 0);
-		notification.setLatestEventInfo(context, title, body, pendingIntent);
+		//notification.setLatestEventInfo(context, title, body, pendingIntent);
 		notificationManager.notify(0, notification);
 	}
 }

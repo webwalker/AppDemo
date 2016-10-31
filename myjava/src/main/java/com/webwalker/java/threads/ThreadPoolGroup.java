@@ -4,13 +4,13 @@
 package com.webwalker.java.threads;
 
 /**
- * @author Administrator æ–¹ä¾¿çš„å¯¹çº¿ç¨‹è¿›è¡Œç®¡ç†
+ * @author Administrator ·½±ãµÄ¶ÔÏß³Ì½øĞĞ¹ÜÀí
  */
 public class ThreadPoolGroup implements ITester {
 
 	/**
-	 * å¯ä»¥å¯¹çº¿ç¨‹è¿›è¡Œéå†ï¼ŒçŸ¥é“é‚£äº›çº¿ç¨‹å·²ç»è¿è¡Œå®Œæ¯•ï¼Œè¿˜æœ‰é‚£äº›çº¿ç¨‹åœ¨è¿è¡Œ
-	 * é€šè¿‡ThreadGroup.activeCountçŸ¥é“æœ‰å¤šå°‘çº¿ç¨‹ä»è€Œå¯ä»¥æ§åˆ¶æ’å…¥çš„çº¿ç¨‹æ•°
+	 * ¿ÉÒÔ¶ÔÏß³Ì½øĞĞ±éÀú£¬ÖªµÀÄÇĞ©Ïß³ÌÒÑ¾­ÔËĞĞÍê±Ï£¬»¹ÓĞÄÇĞ©Ïß³ÌÔÚÔËĞĞ
+	 * Í¨¹ıThreadGroup.activeCountÖªµÀÓĞ¶àÉÙÏß³Ì´Ó¶ø¿ÉÒÔ¿ØÖÆ²åÈëµÄÏß³ÌÊı
 	 */
 	@Override
 	public void Test() {
@@ -20,7 +20,7 @@ public class ThreadPoolGroup implements ITester {
 		MyThread thrd2 = new MyThread(tg, "MyThread #2");
 		MyThread thrd3 = new MyThread(tg, "MyThread #3");
 
-		// æˆ– Thread t1 = new Thread(tg, new MyThread());
+		// »ò Thread t1 = new Thread(tg, new MyThread());
 
 		thrd1.start();
 		thrd2.start();
