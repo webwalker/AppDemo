@@ -3,10 +3,8 @@ package com.webwalker.framework.utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
 
 /**
  * 属性文件操作工具类
@@ -83,26 +81,6 @@ public class PropsUtil {
 	}
 
 	/**
-	 * 获取数值型属性
-	 */
-	public static int getNumber(Properties props, String key) {
-		int value = 0;
-		if (props.containsKey(key)) {
-			value = CastUtil.castInt(props.getProperty(key));
-		}
-		return value;
-	}
-
-	// 获取数值型属性（带有默认值）
-	public static int getNumber(Properties props, String key, int defaultValue) {
-		int value = defaultValue;
-		if (props.containsKey(key)) {
-			value = CastUtil.castInt(props.getProperty(key));
-		}
-		return value;
-	}
-
-	/**
 	 * 获取布尔型属性
 	 */
 	public static boolean getBoolean(Properties props, String key) {
@@ -119,22 +97,5 @@ public class PropsUtil {
 			value = CastUtil.castBoolean(props.getProperty(key));
 		}
 		return value;
-	}
-
-	/**
-	 * 获取指定前缀的相关属性
-	 */
-	public static Map<String, Object> getMap(Properties props, String prefix) {
-		Map<String, Object> kvMap = new LinkedHashMap<String, Object>();
-		Set<String> keySet = props.stringPropertyNames();
-		if (CollectionUtil.isNotEmpty(keySet)) {
-			for (String key : keySet) {
-				if (key.startsWith(prefix)) {
-					String value = props.getProperty(key);
-					kvMap.put(key, value);
-				}
-			}
-		}
-		return kvMap;
 	}
 }

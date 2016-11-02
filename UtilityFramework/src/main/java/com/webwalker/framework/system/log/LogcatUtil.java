@@ -36,7 +36,7 @@ public class LogcatUtil {
 		clear();
 		stopLog();
 		// avoid log cache memory overflow
-		FileUtil.deleteDir(getLogPath(context));
+		FileUtil.deleteDir(getLogPath(context), false);
 		startLog(context, "");
 	}
 

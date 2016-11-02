@@ -1,13 +1,11 @@
 package com.webwalker.framework.utils;
 
+import android.util.Base64;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.UUID;
-
-import org.apache.commons.lang3.RandomStringUtils;
-
-import android.util.Base64;
 
 /**
  * 编码与解码操作工具类
@@ -69,13 +67,6 @@ public class EncodeUtil {
 			throw new RuntimeException(e);
 		}
 		return target;
-	}
-
-	/**
-	 * 创建随机数
-	 */
-	public static String createRandom(int count) {
-		return RandomStringUtils.randomNumeric(count);
 	}
 
 	/**

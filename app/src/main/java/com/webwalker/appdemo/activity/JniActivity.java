@@ -21,14 +21,14 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class JniActivity extends AppCompatActivity {
-    @InjectView(R.id.tvResult)
+    @Bind(R.id.tvResult)
     TextView tvResult;
-    @InjectView(R.id.etString)
+    @Bind(R.id.etString)
     EditText etString;
 
     private String inputString;
@@ -43,7 +43,7 @@ public class JniActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jni);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         System.loadLibrary("Ymt");
     }

@@ -4,16 +4,16 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.EditText;
 
-import com.webwalker.appdemo.activity.BaseActivity;
 import com.webwalker.appdemo.R;
+import com.webwalker.appdemo.activity.BaseActivity;
 import com.webwalker.framework.utils.MessageUtil;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -25,9 +25,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class WebViewActivity extends BaseActivity {
-    @InjectView(R.id.webView)
+    @Bind(R.id.webView)
     WebView webView;
-    @InjectView(R.id.etUrl)
+    @Bind(R.id.etUrl)
     EditText etUrl;
     Response response;
 
@@ -35,7 +35,7 @@ public class WebViewActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
     @OnClick(R.id.btnOpen)

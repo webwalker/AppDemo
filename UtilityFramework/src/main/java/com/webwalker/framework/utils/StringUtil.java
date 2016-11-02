@@ -1,5 +1,8 @@
 package com.webwalker.framework.utils;
 
+import android.content.Context;
+import android.text.TextUtils;
+
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.text.MessageFormat;
@@ -10,12 +13,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
-
-import android.content.Context;
-import android.text.TextUtils;
 
 /**
  * 字符串操作工具类
@@ -162,25 +159,11 @@ public class StringUtil {
 	public static final String SEPARATOR = String.valueOf((char) 29);
 
 	/**
-	 * 判断字符串是否非空
-	 */
-	public static boolean isNotEmpty(String str) {
-		return StringUtils.isNotEmpty(str);
-	}
-
-	/**
 	 * 判断字符串是否为空
 	 */
 	public static boolean isEmpty(String str) {
 		//return StringUtils.isEmpty(str);
 		return TextUtils.isEmpty(str);
-	}
-
-	/**
-	 * 若字符串为空，则取默认值
-	 */
-	public static String defaultIfEmpty(String str, String defaultValue) {
-		return StringUtils.defaultIfEmpty(str, defaultValue);
 	}
 
 	/**
@@ -195,20 +178,6 @@ public class StringUtil {
 		}
 		m.appendTail(sb);
 		return sb.toString();
-	}
-
-	/**
-	 * 是否为数字（整数或小数）
-	 */
-	public static boolean isNumber(String str) {
-		return NumberUtils.isNumber(str);
-	}
-
-	/**
-	 * 是否为十进制数（整数）
-	 */
-	public static boolean isDigits(String str) {
-		return NumberUtils.isDigits(str);
 	}
 
 	/**
@@ -242,13 +211,6 @@ public class StringUtil {
 					String.valueOf(Character.toLowerCase(builder.charAt(0))));
 		}
 		return builder.toString();
-	}
-
-	/**
-	 * 分割固定格式的字符串
-	 */
-	public static String[] splitString(String str, String separator) {
-		return StringUtils.splitByWholeSeparator(str, separator);
 	}
 
 	/**
@@ -289,24 +251,6 @@ public class StringUtil {
 			str = str.replace(seperator, "_");
 		}
 		return str;
-	}
-
-	/**
-	 * 转为显示命名方式（如：Foo Bar）
-	 */
-	public static String toDisplayStyle(String str, String seperator) {
-		String displayName = "";
-		str = str.trim().toLowerCase();
-		if (str.contains(seperator)) {
-			String[] words = StringUtil.splitString(str, seperator);
-			for (String word : words) {
-				displayName += StringUtil.firstToUpper(word) + " ";
-			}
-			displayName = displayName.trim();
-		} else {
-			displayName = StringUtil.firstToUpper(str);
-		}
-		return displayName;
 	}
 
 	/** 空字符串。 */

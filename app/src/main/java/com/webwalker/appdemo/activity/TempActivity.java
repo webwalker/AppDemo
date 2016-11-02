@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class TempActivity extends Activity {
-    @InjectView(R.id.editText)
+    @Bind(R.id.editText)
     EditText editText;
-    @InjectView(R.id.textView)
+    @Bind(R.id.textView)
     TextView textView;
 
     private static Pattern domainPattern = null;
@@ -30,7 +30,7 @@ public class TempActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
     @OnClick(R.id.button1)
