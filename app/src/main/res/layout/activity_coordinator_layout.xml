@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,24 +9,39 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300dp"
         android:layout_marginTop="300dp"
         android:background="#FFCC00"
         android:text="Hello"
         app:layout_behavior="com.webwalker.appdemo.base.CoordinatorBehavior" />
 
+    <!--android:background="?android:attr/selectableItemBackground"-->
+    <!--android:elevation="@dimen/abc_action_bar_progress_bar_size"-->
+    <!--android:translationZ="@dimen/abc_action_bar_content_inset_material"-->
+
     <com.webwalker.appdemo.views.TempView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginLeft="300dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="300dp"
         android:background="#3366CC"
         android:tag="10" />
 
     <TextView
+        android:id="@+id/tvHello"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="350dp"
         android:text="Hello world." />
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+    <!--android:id="@+id/fab"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="end|bottom"-->
+    <!--android:layout_margin="16dp"-->
+    <!--android:src="@mipmap/icon_circle" />-->
+
+    <!--app:layout_anchor="@id/tvHello"-->
+    <!--app:layout_anchorGravity="bottom|right|end"-->
 </android.support.design.widget.CoordinatorLayout>
