@@ -82,7 +82,8 @@
         sendUmengLog: sendUmengLog,
         sendYLog: sendYLog,
 	    command: command,
-	    registEvent: registEvent
+	    registEvent: registEvent,
+	    scrollEvent: scrollEvent
     };
 
     readyCallback._que = []; // manage ready callback event
@@ -291,6 +292,8 @@
     function sendYLog(data) { execute2('sendYLog', data); }
 
     function registEvent(data) { execute2('registEvent', data); }
+
+    function scrollEvent(data) { execute2('scrollEvent', data); }
 
     function command(name, data) { execute2(name, data); }
 })();
