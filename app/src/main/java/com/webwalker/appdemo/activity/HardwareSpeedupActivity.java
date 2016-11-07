@@ -13,21 +13,30 @@ import com.webwalker.appdemo.web.MyWebChromeClient;
 import com.webwalker.appdemo.web.MyWebViewClient;
 import com.webwalker.framework.widget.web.WebViewUtils;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class HardwareSpeedupActivity extends BaseActivity {
+    @Bind(R.id.webView1)
     WebView wv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hardware_speedup);
+        ButterKnife.bind(this);
 
-        wv = aq.id(R.id.webView1).getWebView();
         WebSettings settings = WebViewUtils.initWebView(wv);
         wv.setWebViewClient(new MyWebViewClient());
         wv.setWebChromeClient(new MyWebChromeClient());
         wv.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 
         wv.loadUrl(Urls.SINA);
+    }
+
+    @Override
+    public String getLabel() {
+        return "硬件加速";
     }
 
     @Override
@@ -43,5 +52,4 @@ public class HardwareSpeedupActivity extends BaseActivity {
     public void test() {
 
     }
-
 }

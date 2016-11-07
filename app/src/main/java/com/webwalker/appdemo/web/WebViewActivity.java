@@ -38,6 +38,11 @@ public class WebViewActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
+    @Override
+    public String getLabel() {
+        return "Http2";
+    }
+
     @OnClick(R.id.btnOpen)
     public void clickOpen() {
         webView.loadUrl(etUrl.getText().toString());

@@ -22,7 +22,7 @@ import com.webwalker.framework.widget.recycle.SmartRecyclerAdapter;
 
 import java.util.Random;
 
-public class RecycleViewActivity extends AppCompatActivity {
+public class RecycleViewActivity extends BaseActivity {
     private Random random = new Random(100);
     private RecyclerView recyclerView;
     private CardView headerView, footerView;
@@ -83,6 +83,11 @@ public class RecycleViewActivity extends AppCompatActivity {
 
         initHeadAndFooterView();
         showLine();
+    }
+
+    @Override
+    public String getLabel() {
+        return "RecycleView";
     }
 
     @Override

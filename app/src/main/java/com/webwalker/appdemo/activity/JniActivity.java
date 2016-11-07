@@ -1,7 +1,6 @@
 package com.webwalker.appdemo.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,7 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class JniActivity extends AppCompatActivity {
+public class JniActivity extends BaseActivity {
     @Bind(R.id.tvResult)
     TextView tvResult;
     @Bind(R.id.etString)
@@ -46,6 +45,11 @@ public class JniActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         System.loadLibrary("Ymt");
+    }
+
+    @Override
+    public String getLabel() {
+        return "Jni";
     }
 
     @OnClick(R.id.btnJni)

@@ -14,8 +14,9 @@ import android.widget.Toast;
 
 import com.webwalker.appdemo.MainActivity;
 import com.webwalker.appdemo.R;
+import com.webwalker.appdemo.activity.BaseActivity;
 
-public class X5Activity extends Activity {
+public class X5Activity extends BaseActivity {
     WebView wv;
     //http://sq0.ymatou.com/forBuyerApp/discover
     //https://http2.akamai.com/
@@ -74,6 +75,11 @@ public class X5Activity extends Activity {
         if (wv == null) return false;
         //if (wv.getX5WebViewExtension() != null) return true;
         return false;
+    }
+
+    @Override
+    public String getLabel() {
+        return "X5测试";
     }
 
     public class MyWebViewClient extends WebViewClient {

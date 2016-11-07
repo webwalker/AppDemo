@@ -14,15 +14,21 @@ import com.webwalker.appdemo.web.MyWebViewClient;
 import com.webwalker.framework.utils.FileUtil;
 import com.webwalker.framework.widget.web.WebViewUtils;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class NormalActivity extends BaseActivity {
+    @Bind(R.id.webView1)
     WebView wv;
+    @Bind(R.id.button1)
+    Button button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_normal);
+        ButterKnife.bind(this);
 
-        wv = aq.id(R.id.webView1).getWebView();
         Button button1 = (Button) findViewById(R.id.button1);
         WebSettings settings = WebViewUtils.initWebView(wv);
         wv.setWebViewClient(new MyWebViewClient());
@@ -47,4 +53,8 @@ public class NormalActivity extends BaseActivity {
         });
     }
 
+    @Override
+    public String getLabel() {
+        return "Normal Web";
+    }
 }

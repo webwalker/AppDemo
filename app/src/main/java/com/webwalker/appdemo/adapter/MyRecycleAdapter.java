@@ -1,15 +1,15 @@
 package com.webwalker.appdemo.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.webwalker.appdemo.R;
-import com.webwalker.appdemo.model.Product;
-import com.webwalker.framework.utils.ImageUnity;
+import com.webwalker.appdemo.activity.BaseActivity;
 
 import java.util.List;
 
@@ -17,10 +17,12 @@ import java.util.List;
  * Created by xujian on 2016/8/22.
  */
 public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.MyViewHolder> {
-    private List<Product> products;
+    private List<BaseActivity> items;
+    private Context context;
 
-    public MyRecycleAdapter(List<Product> list) {
-        products = list;
+    public MyRecycleAdapter(Context context, List<BaseActivity> list) {
+        this.context = context;
+        this.items = list;
     }
 
     @Override
@@ -31,26 +33,28 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.MyVi
 
     @Override
     public void onBindViewHolder(MyViewHolder view, int position) {
-        Product product = products.get(position);
-        ImageUnity.getLoader().displayImage(product.getImg(), view.imageView);
-        view.textView.setText(product.getTitle());
+        final BaseActivity item = items.get(position);
+        view.textView.setText(item.getLabel());
+        view.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, item.getClass());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return products.size();
+        return items.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
         TextView textView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.recycle_item_img);
-            textView = (TextView) itemView.findViewById(R.id.recycle_item_title);
+            textView = (TextView) itemView.findViewById(R.id.recycle_item);
         }
-
     }
-
 }

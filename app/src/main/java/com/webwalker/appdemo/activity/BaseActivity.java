@@ -1,19 +1,16 @@
 package com.webwalker.appdemo.activity;
 
-import com.webwalker.framework.common.BaseFrameworkActivity;
 import android.os.Bundle;
-import android.webkit.WebView;
-
-import butterknife.ButterKnife;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * @author xu.jian
- * 
  */
-public class BaseActivity extends BaseFrameworkActivity {
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
+public abstract class BaseActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
+    public abstract String getLabel();
 }
