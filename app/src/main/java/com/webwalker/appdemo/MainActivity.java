@@ -9,6 +9,7 @@ import com.tencent.smtt.sdk.QbSdk;
 import com.webwalker.appdemo.activity.BaseActivity;
 import com.webwalker.appdemo.activity.CoordinatorActivity;
 import com.webwalker.appdemo.activity.JniActivity;
+import com.webwalker.appdemo.activity.PatchActivity;
 import com.webwalker.appdemo.activity.RecycleViewActivity;
 import com.webwalker.appdemo.activity.WebTestActivity;
 import com.webwalker.appdemo.adapter.MyRecycleAdapter;
@@ -54,6 +55,7 @@ public class MainActivity extends BaseActivity {
         list.add(new JniActivity());
         list.add(new RecycleViewActivity());
         list.add(new WebTestActivity());
+        list.add(new PatchActivity());
 
         return list;
     }
