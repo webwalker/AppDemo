@@ -11,6 +11,7 @@ import com.webwalker.appdemo.activity.CoordinatorActivity;
 import com.webwalker.appdemo.activity.JniActivity;
 import com.webwalker.appdemo.activity.PatchActivity;
 import com.webwalker.appdemo.activity.RecycleViewActivity;
+import com.webwalker.appdemo.activity.TextViewActivity;
 import com.webwalker.appdemo.activity.WebTestActivity;
 import com.webwalker.appdemo.adapter.MyRecycleAdapter;
 import com.webwalker.appdemo.web.FirstLoadingX5Service;
@@ -56,6 +57,7 @@ public class MainActivity extends BaseActivity {
         list.add(new RecycleViewActivity());
         list.add(new WebTestActivity());
         list.add(new PatchActivity());
+        list.add(new TextViewActivity());
 
         return list;
     }

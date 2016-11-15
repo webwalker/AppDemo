@@ -1,1 +1,1 @@
-include ':app', ':UtilityFramework', ':MyJava'
+include ':app', ':UtilityFramework', ':MyJava', ':frameworkUI'

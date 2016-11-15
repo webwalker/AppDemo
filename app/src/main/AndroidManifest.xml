@@ -51,7 +51,8 @@
         <activity android:name=".activity.RecycleViewActivity" />
         <activity android:name=".activity.CoordinatorActivity" />
         <activity android:name=".activity.WebTestActivity" />
-        <activity android:name=".activity.PatchActivity"></activity>
+        <activity android:name=".activity.PatchActivity" />
+        <activity android:name=".activity.TextViewActivity"></activity>
     </application>
 
 </manifest>
