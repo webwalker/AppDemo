@@ -78,6 +78,7 @@
         callPhone: callPhone,
         screenShot: screenShot,
         getNetworkType: getNetworkType,
+        clipboard: clipboard,
         //监控接口
         sendUmengLog: sendUmengLog,
         sendYLog: sendYLog,
@@ -286,6 +287,8 @@
     function screenShot(data) { execute2('screenShot', data); }
 
     function getNetworkType(data) { execute2('getNetworkType', data); }
+
+    function clipboard(data) { execute2('clipboard', data); }
 
     function sendUmengLog(data) { execute2('sendUmengLog', data); }
 

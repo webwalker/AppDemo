@@ -518,6 +518,12 @@
         });
     }
 
+    jTest.clipboard = function(){
+        ymt.clipboard({
+            data:"剪切板..."
+        });
+    }
+
     jTest.command = function(name, data){
         ymt.command(name, data);
     }
