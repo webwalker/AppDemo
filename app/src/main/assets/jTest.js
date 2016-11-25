@@ -524,6 +524,13 @@
         });
     }
 
+    jTest.openUrl = function(){
+        ymt.openWin({
+            url:"http://www.baidu.com",
+            winType:-1
+        });
+     }
+
     jTest.command = function(name, data){
         ymt.command(name, data);
     }
