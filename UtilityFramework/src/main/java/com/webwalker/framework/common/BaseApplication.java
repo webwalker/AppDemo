@@ -46,7 +46,7 @@ public class BaseApplication extends Application {
 		@Override
 		public void uncaughtException(Thread thread, Throwable ex) {
 			Loggers.d(TAG, ex.getMessage());
-			MessageUtil.showShortToast(getApplicationContext(),
+			MessageUtil.shortToast(getApplicationContext(),
 					"很抱歉，程序出现异常，即将退出并重启.");
 
 			try {

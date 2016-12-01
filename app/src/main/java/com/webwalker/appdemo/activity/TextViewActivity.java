@@ -80,6 +80,6 @@ public class TextViewActivity extends BaseActivity {
 
     @Override
     public String getLabel() {
-        return "UIActivity";
+        return "TextView";
     }
 }

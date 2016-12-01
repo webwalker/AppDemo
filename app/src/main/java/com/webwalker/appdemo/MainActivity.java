@@ -8,11 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import com.tencent.smtt.sdk.QbSdk;
 import com.webwalker.appdemo.activity.BaseActivity;
 import com.webwalker.appdemo.activity.CoordinatorActivity;
+import com.webwalker.appdemo.activity.DragActivity;
 import com.webwalker.appdemo.activity.JniActivity;
 import com.webwalker.appdemo.activity.PatchActivity;
 import com.webwalker.appdemo.activity.RecycleViewActivity;
+import com.webwalker.appdemo.activity.SlideDragActivity;
 import com.webwalker.appdemo.activity.TextViewActivity;
+import com.webwalker.appdemo.activity.UIActivity;
 import com.webwalker.appdemo.activity.WebTestActivity;
+import com.webwalker.appdemo.activity.YoutubeActivity;
 import com.webwalker.appdemo.adapter.MyRecycleAdapter;
 import com.webwalker.appdemo.web.FirstLoadingX5Service;
 import com.webwalker.appdemo.web.X5Activity;
@@ -58,6 +62,19 @@ public class MainActivity extends BaseActivity {
         list.add(new WebTestActivity());
         list.add(new PatchActivity());
         list.add(new TextViewActivity());
+        list.add(new DragActivity(getBundle("horizontal", true), "水平拖拽"));
+        list.add(new DragActivity(getBundle("vertical", true), "垂直拖拽"));
+        list.add(new DragActivity(getBundle("edge", true), "拖拽边缘"));
+        list.add(new DragActivity(getBundle("capture", true), "拖拽对象"));
+        list.add(new DragActivity(getBundle("any", true), "自由拖拽"));
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("any", true);
+        bundle.putBoolean("moveTogether", true);
+        list.add(new DragActivity(bundle, "一起拖拽"));
+        list.add(new YoutubeActivity());
+        list.add(new SlideDragActivity());
+        list.add(new UIActivity(R.layout.view_drag_layout, "下拉滑动"));
+        list.add(new UIActivity(R.layout.drag_slide_view, "Drag侧滑"));
 
         return list;
     }

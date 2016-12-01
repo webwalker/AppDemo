@@ -108,7 +108,7 @@ public class UserIconUtil {
                 break;
             case PHOTO_REQUEST_CAMERA:
                 if (!StorageUtil.hasSDCard()) {
-                    MessageUtil.showShortToast(act, "未找到存储卡，无法存储照片！");
+                    MessageUtil.shortToast(act, "未找到存储卡，无法存储照片！");
                     return;
                 }
                 tempFile = StorageUtil.getSDCardFile(PHOTO_FILE_NAME);

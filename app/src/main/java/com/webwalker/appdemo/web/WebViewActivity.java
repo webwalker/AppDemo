@@ -80,7 +80,7 @@ public class WebViewActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        MessageUtil.showShortToast(WebViewActivity.this, response.protocol() + "");
+                        MessageUtil.shortToast(WebViewActivity.this, response.protocol() + "");
                     }
                 });
             }

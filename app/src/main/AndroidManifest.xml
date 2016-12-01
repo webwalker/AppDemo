@@ -52,7 +52,11 @@
         <activity android:name=".activity.CoordinatorActivity" />
         <activity android:name=".activity.WebTestActivity" />
         <activity android:name=".activity.PatchActivity" />
-        <activity android:name=".activity.TextViewActivity"></activity>
+        <activity android:name=".activity.TextViewActivity" />
+        <activity android:name=".activity.DragActivity" />
+        <activity android:name=".activity.YoutubeActivity" />
+        <activity android:name=".activity.SlideDragActivity" />
+        <activity android:name=".activity.UIActivity"></activity>
     </application>
 
 </manifest>

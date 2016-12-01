@@ -13,7 +13,7 @@ import com.webwalker.framework.utils.MessageUtil;
 public class MyWebChromeClient extends WebChromeClient {
     @Override
     public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-        MessageUtil.showShortToast(view.getContext(), message);
+        MessageUtil.shortToast(view.getContext(), message);
         result.confirm();
         return true;
     }

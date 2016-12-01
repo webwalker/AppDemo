@@ -57,7 +57,7 @@ public class LogcatUtil {
 	public static void showLogs(Context context, String tag, View v) {
 		String logs = FileUtil.readFile(logPath);
 		if (TextUtils.isEmpty(logs)) {
-			MessageUtil.showShortToast(context, "获取控制台日志信息错误!");
+			MessageUtil.shortToast(context, "获取控制台日志信息错误!");
 			return;
 		}
 

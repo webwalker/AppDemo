@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <webwalker.frameworkui.drag.DragSwipeView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/lview"
+            layout="@layout/left_view" />
+
+        <include
+            android:id="@+id/rview"
+            layout="@layout/right_view" />
+
+    </webwalker.frameworkui.drag.DragSwipeView>
+
+</LinearLayout>
