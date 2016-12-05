@@ -56,7 +56,8 @@
         <activity android:name=".activity.DragActivity" />
         <activity android:name=".activity.YoutubeActivity" />
         <activity android:name=".activity.SlideDragActivity" />
-        <activity android:name=".activity.UIActivity"></activity>
+        <activity android:name=".activity.UIActivity" />
+        <activity android:name=".activity.SnackbarActivity"></activity>
     </application>
 
 </manifest>

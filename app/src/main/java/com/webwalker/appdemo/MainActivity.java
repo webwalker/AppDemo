@@ -13,6 +13,7 @@ import com.webwalker.appdemo.activity.JniActivity;
 import com.webwalker.appdemo.activity.PatchActivity;
 import com.webwalker.appdemo.activity.RecycleViewActivity;
 import com.webwalker.appdemo.activity.SlideDragActivity;
+import com.webwalker.appdemo.activity.SnackbarActivity;
 import com.webwalker.appdemo.activity.TextViewActivity;
 import com.webwalker.appdemo.activity.UIActivity;
 import com.webwalker.appdemo.activity.WebTestActivity;
@@ -75,6 +76,7 @@ public class MainActivity extends BaseActivity {
         list.add(new SlideDragActivity());
         list.add(new UIActivity(R.layout.view_drag_layout, "下拉滑动"));
         list.add(new UIActivity(R.layout.drag_slide_view, "Drag侧滑"));
+        list.add(new SnackbarActivity());
 
         return list;
     }
