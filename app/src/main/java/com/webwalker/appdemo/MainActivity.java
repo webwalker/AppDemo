@@ -19,6 +19,9 @@ import com.webwalker.appdemo.activity.UIActivity;
 import com.webwalker.appdemo.activity.WebTestActivity;
 import com.webwalker.appdemo.activity.YoutubeActivity;
 import com.webwalker.appdemo.adapter.MyRecycleAdapter;
+import com.webwalker.appdemo.views.TestItem;
+import com.webwalker.appdemo.views.TestItem2;
+import com.webwalker.appdemo.views.TestView;
 import com.webwalker.appdemo.web.FirstLoadingX5Service;
 import com.webwalker.appdemo.web.X5Activity;
 
@@ -46,6 +49,13 @@ public class MainActivity extends BaseActivity {
             startService(intent);
         }
 
+        TestView tv = new TestView(this);
+        TestItem ti = new TestItem();
+        TestItem.TestItem2 item2 = new TestItem.TestItem2();
+        TestItem.TestItem2.TestItem3 item3 = new TestItem.TestItem2.TestItem3();
+        TestItem.TestItem2.TestItem3.TestItem4 item4 = new TestItem.TestItem2.TestItem3.TestItem4();
+
+        TestItem2 t2 = new TestItem2();
         init();
     }
 

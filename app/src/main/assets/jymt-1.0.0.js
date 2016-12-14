@@ -70,6 +70,7 @@
         search: search,
         promotionProduct: promotionProduct,
         topicDetail: topicDetail,
+        topicList: topicList,
         //事件接口
         listenPageEvent: listenPageEvent,
         notifyEvent: notifyEvent,
@@ -273,6 +274,8 @@
     function search(data) { execute2('search', data); }
 
     function promotionProduct(data) { execute2('promotionProduct', data); }
+
+    function topicList(data) { execute2('topicList', data); }
 
     function topicDetail(data) { execute2('topicDetail', data); }
 
