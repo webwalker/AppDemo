@@ -426,7 +426,7 @@
         ymt.topicList({
             topicId:"1001641", //清单Id
             title:"123432424", //清单显示的标题
-            productId:"" //产品ID，外面点进去的时候排在第一位，可以不传递 51f0c8ba-3c28-4fda-b0e9-17159ed91a5b
+            productId:"" //产品ID，外面点进去的时候排在第一位，可以不传递
         });
     }
 
@@ -452,7 +452,14 @@
     }
 
     jTest.bindMobile = function(){
-        ymt.bindMobile();
+        ymt.bindMobile({
+            success:function(res){
+                alert("success:" + res.data + "____" + res.msg);
+            },
+            fail:function(res){
+                alert("fail:" + res.data + "____" + res.msg);
+            }
+        });
     }
 
     jTest.couponProducts = function(){

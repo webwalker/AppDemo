@@ -263,7 +263,7 @@
 
     function contactBook() { execute2('contactBook', ''); }
 
-    function bindMobile() { execute2('bindMobile', ''); }
+    function bindMobile(data) { execute2('bindMobile', data); }
 
     function couponProducts(data) { execute2('couponProducts', data); }
 
