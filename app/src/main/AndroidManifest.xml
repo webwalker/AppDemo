@@ -26,12 +26,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.HardwareSpeedupActivity"
-            android:label="@string/title_activity_hardware_speedup" />
-        <activity
-            android:name=".activity.NormalActivity"
-            android:label="@string/title_activity_normal" />
-        <activity
             android:name="com.webwalker.framework.system.log.DebugActivity"
             android:label="@string/title_activity_debug" />
         <activity android:name=".web.X5Activity" />
@@ -47,7 +41,7 @@
         <activity android:name=".activity.JniActivity" />
         <activity android:name=".activity.AesActivity" />
         <activity android:name=".activity.AesRsaActivity" />
-        <activity android:name=".activity.TempActivity" />
+        <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.RecycleViewActivity" />
         <activity android:name=".activity.CoordinatorActivity" />
         <activity android:name=".activity.WebTestActivity" />
@@ -57,7 +51,9 @@
         <activity android:name=".activity.YoutubeActivity" />
         <activity android:name=".activity.SlideDragActivity" />
         <activity android:name=".activity.UIActivity" />
-        <activity android:name=".activity.SnackbarActivity"></activity>
+        <activity android:name=".activity.SnackbarActivity" />
+        <activity android:name=".activity.PaintActivity" />
+        <activity android:name=".activity.AnimationActivity"></activity>
     </application>
 
 </manifest>

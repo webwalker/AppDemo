@@ -15,7 +15,7 @@ import java.util.TreeMap;
  *
  * 数据采用AES加密，验证数据的签名采用RSA，传递给服务端的AES秘钥采用RSA公钥签名
  */
-public class AesRsaActivity extends AppCompatActivity {
+public class AesRsaActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,11 @@ public class AesRsaActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String getLabel() {
+        return "AesRsa";
     }
 
     public static void client(TreeMap<String, Object> params) throws Exception {

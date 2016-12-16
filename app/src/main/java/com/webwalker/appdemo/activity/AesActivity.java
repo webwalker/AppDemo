@@ -19,7 +19,7 @@ import static com.webwalker.framework.utils.EncryptAesCbcWithIntegrity.keyString
 import static com.webwalker.framework.utils.EncryptAesCbcWithIntegrity.keys;
 import static com.webwalker.framework.utils.EncryptAesCbcWithIntegrity.saltString;
 
-public class AesActivity extends AppCompatActivity {
+public class AesActivity extends BaseActivity {
     public static final String TAG = "AES";
 
     private static boolean PASSWORD_BASED_KEY = true;
@@ -67,5 +67,10 @@ public class AesActivity extends AppCompatActivity {
         } catch (UnsupportedEncodingException e) {
             Log.e(TAG, "UnsupportedEncodingException", e);
         }
+    }
+
+    @Override
+    public String getLabel() {
+        return "AES";
     }
 }

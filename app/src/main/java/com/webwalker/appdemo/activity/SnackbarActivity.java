@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.webwalker.appdemo.R;
+import com.webwalker.appdemo.common.Params;
 
 public class SnackbarActivity extends BaseActivity {
     CoordinatorLayout container;

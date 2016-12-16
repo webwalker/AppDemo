@@ -40,10 +40,7 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.MyVi
             public void onClick(View v) {
                 Intent intent = new Intent(context, item.getClass());
                 if (item.params != null) {
-                    intent.putExtras(item.params);
-                }
-                if (item.layoutId > 0) {
-                    intent.putExtra("id", item.layoutId);
+                    intent.putExtra("params", item.params);
                 }
                 context.startActivity(intent);
             }

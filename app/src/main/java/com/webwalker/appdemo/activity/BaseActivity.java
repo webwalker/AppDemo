@@ -3,37 +3,34 @@ package com.webwalker.appdemo.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.webwalker.appdemo.common.Params;
+
 /**
  * @author xu.jian
  */
 public abstract class BaseActivity extends AppCompatActivity {
-    public Bundle params;
-    public int layoutId;
-    protected String label;
+    public Params params;
 
     public BaseActivity() {
     }
 
-    public BaseActivity(Bundle params) {
+    public BaseActivity(Params params) {
         this.params = params;
-    }
-
-    public BaseActivity(int layoutId, String label) {
-        this.layoutId = layoutId;
-        this.label = label;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        layoutId = getIntent().getIntExtra("id", 0);
+        params = (Params) getIntent().getSerializableExtra("params");
+    }
+
+    protected int getLayoutId() {
+        return params.getLayout();
+    }
+
+    protected String getLabels() {
+        return params.getLabel();
     }
 
     public abstract String getLabel();
-
-    protected Bundle getBundle(String key, boolean value) {
-        Bundle bundle = new Bundle();
-        bundle.putBoolean(key, value);
-        return bundle;
-    }
 }

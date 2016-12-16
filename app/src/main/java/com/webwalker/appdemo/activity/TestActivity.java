@@ -18,7 +18,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TempActivity extends Activity {
+//临时测试使用
+public class TestActivity extends Activity {
     @Bind(R.id.editText)
     EditText editText;
     @Bind(R.id.textView)

@@ -5,12 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.webwalker.appdemo.R;
+import com.webwalker.appdemo.common.Params;
 
 public class UIActivity extends BaseActivity {
-    public UIActivity(){}
+    public UIActivity() {
+    }
 
-    public UIActivity(int layoutId, String label) {
-        super(layoutId, label);
+    public UIActivity(Params params) {
+        super(params);
     }
 
     @Override
@@ -18,13 +20,13 @@ public class UIActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         ViewGroup parentView = (ViewGroup) View.inflate(this, R.layout.activity_ui, null);
         setContentView(parentView);
-        if (layoutId > 0) {
-            View view = View.inflate(this, layoutId, parentView);
+        if (getLayoutId() > 0) {
+            View view = View.inflate(this, getLayoutId(), parentView);
         }
     }
 
     @Override
     public String getLabel() {
-        return label;
+        return super.getLabels();
     }
 }
