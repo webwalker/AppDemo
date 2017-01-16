@@ -12,10 +12,12 @@ import com.webwalker.appdemo.activity.AnimationActivity;
 import com.webwalker.appdemo.activity.BaseActivity;
 import com.webwalker.appdemo.activity.CoordinatorActivity;
 import com.webwalker.appdemo.activity.DragActivity;
+import com.webwalker.appdemo.activity.DrawActivity;
+import com.webwalker.appdemo.activity.FrescoActivity;
 import com.webwalker.appdemo.activity.JniActivity;
-import com.webwalker.appdemo.activity.PaintActivity;
 import com.webwalker.appdemo.activity.PatchActivity;
 import com.webwalker.appdemo.activity.RecycleViewActivity;
+import com.webwalker.appdemo.activity.SVGActivity;
 import com.webwalker.appdemo.activity.SlideDragActivity;
 import com.webwalker.appdemo.activity.SnackbarActivity;
 import com.webwalker.appdemo.activity.TextViewActivity;
@@ -39,7 +41,6 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity {
     @Bind(R.id.recyclerview)
     RecyclerView recyclerview;
-
     public static long startTime;
 
     @Override
@@ -70,6 +71,11 @@ public class MainActivity extends BaseActivity {
         recyclerview.setLayoutManager(new GridLayoutManager(this, 3));
     }
 
+    @Override
+    public String getLabel() {
+        return "";
+    }
+
     public List<BaseActivity> getActivities() {
         List<BaseActivity> list = new ArrayList<>();
         list.add(new AesActivity());
@@ -95,14 +101,11 @@ public class MainActivity extends BaseActivity {
         list.add(new UIActivity(Params.get().label("下拉滑动").layout(R.layout.view_drag_layout)));
         list.add(new UIActivity(Params.get().label("Drag侧滑").layout(R.layout.drag_slide_view)));
         list.add(new SnackbarActivity());
-        list.add(new PaintActivity(Params.get().label("绘图")));
         list.add(new AnimationActivity(Params.get().label("动画")));
+        list.add(new FrescoActivity());
+        list.add(new DrawActivity(Params.get().label("绘图")));
+        list.add(new SVGActivity());
 
         return list;
-    }
-
-    @Override
-    public String getLabel() {
-        return "";
     }
 }

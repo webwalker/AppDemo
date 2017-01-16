@@ -2,7 +2,6 @@
 <resources>
 
     <declare-styleable name="AutofitTextView">
-
         <!-- Minimum size of the text. -->
         <attr name="minTextSize" format="dimension" />
         <!--
@@ -12,6 +11,11 @@
         <attr name="precision" format="float" />
         <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
         <attr name="sizeToFit" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedPathView">
+        <attr name="strokeColor" format="color" />
+        <attr name="strokeWidth" format="float" />
     </declare-styleable>
 
 </resources>

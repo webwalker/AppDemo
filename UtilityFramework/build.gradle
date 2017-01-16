@@ -38,4 +38,17 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    //----------------Fresco----------------
+    compile ('com.facebook.fresco:fresco:1.0.0') {
+        exclude group: 'com.nineoldandroids'
+    }
+    compile 'com.facebook.fresco:imagepipeline-okhttp3:1.0.0'
+    // 在 API < 14 上的机器支持 WebP 时
+    compile 'com.facebook.fresco:animated-base-support:1.0.0'
+    // 支持 GIF 动图，需要添加
+    compile 'com.facebook.fresco:animated-gif:1.0.0'
+    // 支持 WebP （静态图+动图）
+    compile 'com.facebook.fresco:animated-webp:1.0.0'
+    compile 'com.facebook.fresco:webpsupport:1.0.0'
+    //----------------end-------------------
 }
