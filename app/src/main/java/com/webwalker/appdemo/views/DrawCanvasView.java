@@ -23,6 +23,7 @@ public class DrawCanvasView extends View {
     private Paint paint;
     private Path path;
     private float percentage;
+    private int radius; //半径
 
     public DrawCanvasView(Context context) {
         super(context);
@@ -43,8 +44,9 @@ public class DrawCanvasView extends View {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.paintAnimAttr);
         //percentage = ta.getFloat(R.styleable.paintAnimAttr_percentage, 0.0f);
         ta.recycle();
-    }//自定义属性，方便属性动画播放时调用
+    }
 
+    //自定义属性，方便属性动画播放时调用
     public final static Property<DrawCanvasView, Float> Percentage =
             new Property<DrawCanvasView, Float>(Float.class, "percentage") {
                 @Override
@@ -72,13 +74,24 @@ public class DrawCanvasView extends View {
         return percentage;
     }
 
+    //定义属性的第二种方式
+    public int getPointRadius() {
+        return 50;
+    }
+
+    public void setPointRadius(int radius) {
+        this.radius = radius;
+        invalidate();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         this.canvas = canvas;
-        paint();
-        animPaint();
-        canvas.drawPath(path, paint); //最后的线会自动连接起始点
+//        paint();
+//        animPaint();
+//        canvas.drawPath(path, paint); //最后的线会自动连接起始点
+        secondProperty();
     }
 
     //使用path绘制曲线, 单一drawLine没法实现
@@ -99,5 +112,13 @@ public class DrawCanvasView extends View {
         float pathLength = measure.getLength();
         PathEffect effect = new DashPathEffect(new float[]{pathLength, pathLength}, pathLength - pathLength * percentage);
         paint.setPathEffect(effect);
+    }
+
+    private void secondProperty() {
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setColor(Color.RED);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawCircle(300, 300, radius, paint);
     }
 }

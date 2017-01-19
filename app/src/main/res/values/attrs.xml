@@ -3,4 +3,14 @@
     <declare-styleable name="paintAnimAttr">
         <attr name="percentage" format="float" />
     </declare-styleable>
+    <declare-styleable name="WaveView">
+        <attr name="centerX" format="integer" />
+        <attr name="centerY" format="integer" />
+        <attr name="radius" format="integer" />
+        <attr name="wStrokeWidth" format="integer" />
+        <attr name="fillColor" format="integer" />
+        <attr name="fillEndColor" format="integer" />
+        <attr name="gradientStart" format="integer" />
+        <attr name="gradientEnd" format="integer" />
+    </declare-styleable>
 </resources>

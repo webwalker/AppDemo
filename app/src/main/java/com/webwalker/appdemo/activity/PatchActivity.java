@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.webwalker.appdemo.App;
+import com.webwalker.framework.App;
 import com.webwalker.appdemo.R;
 import com.webwalker.appdemo.common.Consts;
 import com.webwalker.appdemo.common.DexTools;

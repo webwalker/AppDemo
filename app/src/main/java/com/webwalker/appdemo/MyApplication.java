@@ -1,5 +1,6 @@
 package com.webwalker.appdemo;
 
+import com.webwalker.framework.App;
 import com.webwalker.framework.image.YImageLoader;
 
 /**

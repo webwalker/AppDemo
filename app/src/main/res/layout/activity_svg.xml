@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.webwalker.appdemo.activity.SVGActivity">
 
-    <com.webwalker.framework.anim.AnimatedPathView
+    <com.webwalker.framework.widget.anim.AnimatedPathView
         android:id="@+id/animated_path"
         android:layout_width="fill_parent"
         android:layout_height="0dp"

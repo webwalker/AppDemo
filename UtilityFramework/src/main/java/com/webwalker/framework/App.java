@@ -1,4 +1,4 @@
-package com.webwalker.appdemo;
+package com.webwalker.framework;
 
 import android.app.Application;
 import android.content.Context;

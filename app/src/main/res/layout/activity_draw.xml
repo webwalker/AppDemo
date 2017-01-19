@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:webwalker="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_draw"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.webwalker.appdemo.views.XfermodeView
+        android:id="@+id/xfermodeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
     <com.webwalker.appdemo.views.DrawCanvasView
-        android:id="@+id/v_canvas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/v_path_canvas"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:background="#EEEEDD"
+        android:visibility="gone"
         webwalker:percentage="0" />
 
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="200dp"
-        android:src="@mipmap/ic_launcher" />
+    <com.webwalker.appdemo.views.WaveView
+        android:id="@+id/v_canvas_wave"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#EEEEDD"
+        android:visibility="gone" />
 
-</RelativeLayout>
+    <com.webwalker.appdemo.views.CommonCanvasView
+        android:id="@+id/v_common_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AABBCC"
+        android:visibility="gone" />
+
+</LinearLayout>

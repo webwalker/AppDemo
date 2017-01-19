@@ -1,4 +1,4 @@
-package com.webwalker.framework.anim;
+package com.webwalker.framework.widget.anim;
 
 import android.content.Context;
 import android.content.res.TypedArray;

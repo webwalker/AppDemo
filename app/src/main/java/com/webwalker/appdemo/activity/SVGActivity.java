@@ -8,7 +8,7 @@ import android.view.animation.LinearInterpolator;
 
 import com.webwalker.appdemo.R;
 import com.webwalker.appdemo.common.Params;
-import com.webwalker.framework.anim.AnimatedPathView;
+import com.webwalker.framework.widget.anim.AnimatedPathView;
 
 public class SVGActivity extends BaseActivity {
     public SVGActivity() {

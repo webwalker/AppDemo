@@ -101,9 +101,9 @@ public class MainActivity extends BaseActivity {
         list.add(new UIActivity(Params.get().label("下拉滑动").layout(R.layout.view_drag_layout)));
         list.add(new UIActivity(Params.get().label("Drag侧滑").layout(R.layout.drag_slide_view)));
         list.add(new SnackbarActivity());
-        list.add(new AnimationActivity(Params.get().label("动画")));
         list.add(new FrescoActivity());
         list.add(new DrawActivity(Params.get().label("绘图")));
+        list.add(new AnimationActivity(Params.get().label("动画")));
         list.add(new SVGActivity());
 
         return list;
