@@ -91,7 +91,8 @@ public class DrawCanvasView extends View {
 //        paint();
 //        animPaint();
 //        canvas.drawPath(path, paint); //最后的线会自动连接起始点
-        secondProperty();
+//        secondProperty();
+        circleLabel();
     }
 
     //使用path绘制曲线, 单一drawLine没法实现
@@ -119,6 +120,14 @@ public class DrawCanvasView extends View {
         paint.setAntiAlias(true);
         paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.FILL);
+        canvas.drawCircle(300, 300, radius, paint);
+    }
+
+    private void circleLabel() {
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setColor(Color.RED);
+        paint.setStyle(Paint.Style.STROKE);
         canvas.drawCircle(300, 300, radius, paint);
     }
 }

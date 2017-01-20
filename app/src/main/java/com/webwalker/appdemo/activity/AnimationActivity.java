@@ -13,14 +13,20 @@ import android.os.Bundle;
 import android.support.v4.view.animation.PathInterpolatorCompat;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.webwalker.appdemo.R;
 import com.webwalker.appdemo.common.Params;
 import com.webwalker.framework.animation.CustomInterpolator;
+import com.webwalker.framework.animation.MyAnimation;
+import com.webwalker.framework.animation.ScaleDisappear;
+import com.webwalker.framework.animation.drawable.ShrinkView;
 import com.webwalker.framework.utils.DeviceUtil;
 
 import butterknife.Bind;
@@ -31,9 +37,16 @@ public class AnimationActivity extends BaseActivity {
     ImageView imageView;
     @Bind(R.id.iv_anim_icon_reverse)
     ImageView reverseImageView;
+    @Bind(R.id.v_common_anim)
+    FrameLayout commonView;
+    @Bind(R.id.iv_anim_001)
+    ImageView iv001;
+    @Bind(R.id.iv_anim_002)
+    ImageView iv002;
 
     private int screenWidth = 0;
     private int screenHeight = 0;
+    private boolean value = false;
 
     public AnimationActivity() {
     }
@@ -52,7 +65,7 @@ public class AnimationActivity extends BaseActivity {
 //        alpha01();
 //        alpha02();
 //        scale01();
-        translate01();
+//        translate01();
 //        rotate01();
 //        others();
 //        margin();
@@ -60,6 +73,9 @@ public class AnimationActivity extends BaseActivity {
 //        hideOrShowListViewAnimator(100, 600);
 //        flip();
 //        alphaAnimator();
+//        Animatable(); //AnimalDrawable的方式实现动画
+        scaleDisappear();
+//        camer3D();
     }
 
     @Override
@@ -281,5 +297,40 @@ public class AnimationActivity extends BaseActivity {
         visibleAnimator.setRepeatCount(-1);
         visibleAnimator.setRepeatMode(ValueAnimator.RESTART);
         visibleAnimator.start();
+    }
+
+    //动画drawable, ShrinkDrawable
+    private void Animatable() {
+        commonView.setVisibility(View.VISIBLE);
+        ShrinkView shrinkView = new ShrinkView(this);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(100, 100);
+        shrinkView.setLayoutParams(params);
+        commonView.addView(shrinkView);
+    }
+
+    private void scaleDisappear() {
+//        commonView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+//            @Override
+//            public boolean onPreDraw() {
+//                ScaleDisappear.animToTagOnWindows(AnimationActivity.this, iv001, iv002, 0.5f);
+//                commonView.getViewTreeObserver().removeOnPreDrawListener(this);
+//                return true;
+//            }
+//        });
+        commonView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (value) return;
+                ScaleDisappear.animToTagOnWindows(AnimationActivity.this, iv001, iv002, 1f);
+                value = true;
+            }
+        });
+    }
+
+    //3d场景动画
+    public void camer3D() {
+        MyAnimation animation = new MyAnimation();
+        animation.start();
+        imageView.setAnimation(animation);
     }
 }

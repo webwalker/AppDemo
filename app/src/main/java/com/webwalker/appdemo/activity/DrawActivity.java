@@ -7,8 +7,10 @@ import android.animation.ValueAnimator;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
+import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
@@ -65,8 +67,8 @@ public class DrawActivity extends BaseActivity {
         init();
 //        normal();
 //        drawPathAnim();
-//        saveRestore();
-        touchPaint();
+        saveRestore(); //钟表，绘图技巧
+//        touchPaint();
 //        waveView();
 //        clip();
 //        clipWithBitmapShader();
@@ -216,34 +218,39 @@ public class DrawActivity extends BaseActivity {
                                      public void action(Canvas canvas) {
                                          paint.setAntiAlias(true);
                                          paint.setStyle(Paint.Style.STROKE);
+                                         canvas.drawColor(Color.LTGRAY);
+                                         //移动后0,0变成了屏幕的中心点，也是圆心，便于绘画
                                          canvas.translate(canvas.getWidth() / 2, 200); //将位置移动画纸的坐标点:150,150
                                          canvas.drawCircle(0, 0, 100, paint); //画圆圈
 
                                          //使用path绘制路径文字
                                          canvas.save();
-                                         canvas.translate(-75, -75);
+                                         canvas.translate(-75, -75); //画完圆后位移新的绘画画布
                                          Path path = new Path();
+                                         //在矩形区域X：0-150， Y：0-150范围内设计圆弧路径，
+                                         //-180+180，起始点-180度，结束点0度， -180是9点钟方向，180也是3点钟方向
                                          path.addArc(new RectF(0, 0, 150, 150), -180, 180);
                                          Paint citePaint = new Paint(paint);
                                          citePaint.setTextSize(14);
                                          citePaint.setStrokeWidth(1);
+                                         //将圆弧水平位移一下
                                          canvas.drawTextOnPath("http://www.android777.com", path, 28, 0, citePaint);
                                          canvas.restore();
 
+                                         //画刻度
                                          Paint tmpPaint = new Paint(paint); //小刻度画笔对象
                                          tmpPaint.setStrokeWidth(1);
-
                                          float y = 100;
                                          int count = 60; //总刻度数
                                          for (int i = 0; i < count; i++) {
-                                             if (i % 5 == 0) {
+                                             if (i % 5 == 0) { //大刻度
                                                  canvas.drawLine(0f, y, 0, y + 12f, paint);
                                                  canvas.drawText(String.valueOf(i / 5 + 1), -4f, y + 25f, tmpPaint);
 
                                              } else {
-                                                 canvas.drawLine(0f, y, 0f, y + 5f, tmpPaint);
+                                                 canvas.drawLine(0f, y, 0f, y + 5f, tmpPaint); //小刻度
                                              }
-                                             canvas.rotate(360 / count, 0f, 0f); //旋转画纸
+                                             canvas.rotate(360 / count, 0f, 0f); //以圆心为中心点，旋转画纸，便于刻度逐一绘制上去
                                          }
 
                                          //绘制指针
@@ -277,7 +284,7 @@ public class DrawActivity extends BaseActivity {
         commonCanvas.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                graphics.add(new PointF(event.getX(),event.getY()));
+                graphics.add(new PointF(event.getX(), event.getY()));
                 commonCanvas.invalidate(); //重新绘制区域
                 return true;
             }
