@@ -2,9 +2,12 @@ package com.webwalker.framework.animation;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
+
+import com.webwalker.framework.App;
 
 /**
  * 使用Camera实现3D动画效果，这里的Camera不是相机，而是场景动画
@@ -19,6 +22,7 @@ public class MyAnimation extends Animation {
 
     @Override
     protected void applyTransformation(float interpolatedTime, Transformation t) {
+        Log.i(App.TAG, interpolatedTime + "");
         Matrix matrix = t.getMatrix();
         camera.save();
         camera.translate(0f, 0f, (1300 - 1300 * interpolatedTime));

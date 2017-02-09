@@ -5,21 +5,32 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.IntEvaluator;
+import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.graphics.Color;
+import android.graphics.Path;
+import android.graphics.PointF;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.animation.PathInterpolatorCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 import com.webwalker.appdemo.R;
 import com.webwalker.appdemo.common.Params;
@@ -32,7 +43,7 @@ import com.webwalker.framework.utils.DeviceUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class AnimationActivity extends BaseActivity {
+public class AnimationActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
     @Bind(R.id.iv_anim_icon)
     ImageView imageView;
     @Bind(R.id.iv_anim_icon_reverse)
@@ -44,9 +55,25 @@ public class AnimationActivity extends BaseActivity {
     @Bind(R.id.iv_anim_002)
     ImageView iv002;
 
+    @Bind(R.id.id_container)
+    LinearLayout lContainer;
+    @Bind(R.id.id_appear)
+    CheckBox mAppear;
+    @Bind(R.id.id_change_appear)
+    CheckBox mChangeAppear;
+    @Bind(R.id.id_disappear)
+    CheckBox mDisAppear;
+    @Bind(R.id.id_change_disappear)
+    CheckBox mChangeDisAppear;
+
+    private GridLayout mGridLayout;
+    private LayoutTransition mTransition;
+    private int mVal;
+
     private int screenWidth = 0;
     private int screenHeight = 0;
     private boolean value = false;
+    private static final String TAG = "animation";
 
     public AnimationActivity() {
     }
@@ -67,20 +94,45 @@ public class AnimationActivity extends BaseActivity {
 //        scale01();
 //        translate01();
 //        rotate01();
+//        propertyValuesHolder();
 //        others();
 //        margin();
 //        scaleValueAnimator();
+//        fadeOut();
+//        verticalRun();
+//        paowuxian();
 //        hideOrShowListViewAnimator(100, 600);
 //        flip();
 //        alphaAnimator();
 //        Animatable(); //AnimalDrawable的方式实现动画
-        scaleDisappear();
+//        scaleDisappear();
+//        animateProperties();
+//        pathInterpolatorCompat();
+        layoutTransition();
 //        camer3D();
     }
 
     @Override
     public String getLabel() {
         return super.getLabels();
+    }
+
+    /**
+     * 添加按钮
+     *
+     * @param view
+     */
+    public void addBtn(View view) {
+        final Button button = new Button(this);
+        button.setText((++mVal) + "");
+        mGridLayout.addView(button, Math.min(1, mGridLayout.getChildCount()));
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mGridLayout.removeView(button);
+            }
+        });
     }
 
     private void init() {
@@ -173,6 +225,14 @@ public class AnimationActivity extends BaseActivity {
         sets.start();
     }
 
+    //代替animatorset
+    public void propertyValuesHolder() {
+        PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("alpha", 1f, 0f, 1f);
+        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("scaleX", 1f, 0, 1f);
+        PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat("scaleY", 1f, 0, 1f);
+        ObjectAnimator.ofPropertyValuesHolder(imageView, pvhX, pvhY, pvhZ).setDuration(2000).start();
+    }
+
     private void others() {
         ObjectAnimator animator = ObjectAnimator.ofInt(imageView,
                 "backgroundColor", Color.RED, Color.BLUE, Color.GRAY, Color.GREEN);
@@ -251,7 +311,7 @@ public class AnimationActivity extends BaseActivity {
      * 隐藏或显示控件的动画
      */
     public void hideOrShowListViewAnimator(final int startValue, final int endValue) {
-        //1.设置属性的初始值和结束值
+        //1.设置属性的初始值和结束值，没有设置要操作的属性，需要在addUpdateListener自己控制，更灵活
         ValueAnimator animator = ValueAnimator.ofInt(0, 100);
         //2.为目标对象的属性变化设置监听器
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -262,6 +322,7 @@ public class AnimationActivity extends BaseActivity {
                 IntEvaluator mEvaluator = new IntEvaluator();
                 //3.使用IntEvaluator计算属性值并赋值给imageView的高
                 imageView.getLayoutParams().height = mEvaluator.evaluate(fraction, startValue, endValue);
+                imageView.setTranslationX(animatorValue);
                 imageView.requestLayout();
             }
         });
@@ -299,6 +360,86 @@ public class AnimationActivity extends BaseActivity {
         visibleAnimator.start();
     }
 
+    /**
+     * 自由落体
+     */
+    public void verticalRun() {
+        ValueAnimator animator = ValueAnimator.ofFloat(0, screenHeight - imageView.getHeight());
+        animator.setTarget(imageView);
+        animator.setDuration(1000).start();
+//      animator.setInterpolator(value)
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                imageView.setTranslationY((Float) animation.getAnimatedValue());
+            }
+        });
+    }
+
+    /**
+     * 抛物线
+     */
+    public void paowuxian() {
+        ValueAnimator valueAnimator = new ValueAnimator();
+        valueAnimator.setDuration(3000);
+        valueAnimator.setObjectValues(new PointF(0, 0));
+        valueAnimator.setInterpolator(new LinearInterpolator());
+        valueAnimator.setEvaluator(new TypeEvaluator<PointF>() {
+            // fraction = t / duration
+            @Override
+            public PointF evaluate(float fraction, PointF startValue, PointF endValue) {
+                Log.e(TAG, fraction * 3 + "");
+                // x方向200px/s ，则y方向0.5 * 10 * t
+                PointF point = new PointF();
+                point.x = 200 * fraction * 3;
+                point.y = 0.5f * 200 * (fraction * 3) * (fraction * 3);
+                return point;
+            }
+        });
+
+        valueAnimator.start();
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                PointF point = (PointF) animation.getAnimatedValue();
+                imageView.setX(point.x);
+                imageView.setY(point.y);
+            }
+        });
+    }
+
+    public void fadeOut() {
+        ObjectAnimator anim = ObjectAnimator.ofFloat(imageView, "alpha", 0.5f);
+        anim.setDuration(1000);
+        anim.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                Log.e(TAG, "onAnimationStart");
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                // TODO Auto-generated method stub
+                Log.e(TAG, "onAnimationRepeat");
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                Log.e(TAG, "onAnimationEnd");
+                ViewGroup parent = (ViewGroup) imageView.getParent();
+                if (parent != null)
+                    parent.removeView(imageView);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                // TODO Auto-generated method stub
+                Log.e(TAG, "onAnimationCancel");
+            }
+        });
+        anim.start();
+    }
+
     //动画drawable, ShrinkDrawable
     private void Animatable() {
         commonView.setVisibility(View.VISIBLE);
@@ -325,6 +466,106 @@ public class AnimationActivity extends BaseActivity {
                 value = true;
             }
         });
+    }
+
+    //也可以使用placeholder或animationSet
+    /*
+    *     PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("alpha", 1f,
+                0f, 1f);
+        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("y", 0,
+                mScreenHeight / 2, 0);
+        ObjectAnimator.ofPropertyValuesHolder(mBlueBall, pvhX, pvhY).setDuration(1000).start();
+    * */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void animateProperties() {
+        // need API12
+        imageView.animate()//
+                .alpha(0)//
+                .y(screenHeight / 2).setDuration(1000)
+                // need API 12
+                .withStartAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e(TAG, "START");
+                    }
+                    // need API 16
+                }).withEndAction(new Runnable() {
+
+            @Override
+            public void run() {
+                Log.e(TAG, "END");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageView.setY(0);
+                        imageView.setAlpha(1.0f);
+                    }
+                });
+            }
+        }).start();
+    }
+
+    //路径插值器
+    public void pathInterpolatorCompat() {
+        Path path = new Path();
+        //x1,y1，x2,y2,x3,y3
+        path.cubicTo(0.1f, 0f, 0.6f, 1f, 0.9f, 1f);
+        //path.addCircle(0f, 0f, 100, Path.Direction.CCW);
+        path.lineTo(1f, 1f);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, View.TRANSLATION_X, 500);
+        animator.setInterpolator(PathInterpolatorCompat.create(path));
+        animator.start();
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        mTransition = new LayoutTransition();
+        // 当一个View在ViewGroup中出现时，对此View设置的动画
+//        mTransition.setAnimator(LayoutTransition.APPEARING,
+//                (mAppear.isChecked() ? mTransition
+//                        .getAnimator(LayoutTransition.APPEARING) : null));
+        mTransition.setAnimator(LayoutTransition.APPEARING, (mAppear
+                .isChecked() ? ObjectAnimator.ofFloat(this, "scaleX", 0, 1)
+                : null));
+        //当一个View在ViewGroup中出现时，对此View对其他View位置造成影响，对其他View设置的动画
+        mTransition.setAnimator(LayoutTransition.CHANGE_APPEARING,
+                (mChangeAppear.isChecked() ? mTransition
+                        .getAnimator(LayoutTransition.CHANGE_APPEARING)
+                        : null));
+        //当一个View在ViewGroup中消失时，对此View设置的动画
+        mTransition.setAnimator(LayoutTransition.DISAPPEARING,
+                (mDisAppear.isChecked() ? mTransition
+                        .getAnimator(LayoutTransition.DISAPPEARING) : null));
+        // 当一个View在ViewGroup中消失时，对此View对其他View位置造成影响，对其他View设置的动画
+        mTransition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING,
+                (mChangeDisAppear.isChecked() ? mTransition
+                        .getAnimator(LayoutTransition.CHANGE_DISAPPEARING)
+                        : null));
+        //LayoutTransition.CHANGE 不是由于View出现或消失造成对其他View位置造成影响，然后对其他View设置的动画。
+        mGridLayout.setLayoutTransition(mTransition);
+    }
+
+    public void layoutTransition() {
+        imageView.setVisibility(View.GONE);
+        lContainer.setVisibility(View.VISIBLE);
+        mAppear = (CheckBox) findViewById(R.id.id_appear);
+        mChangeAppear = (CheckBox) findViewById(R.id.id_change_appear);
+        mDisAppear = (CheckBox) findViewById(R.id.id_disappear);
+        mChangeDisAppear = (CheckBox) findViewById(R.id.id_change_disappear);
+        mAppear.setOnCheckedChangeListener(this);
+        mChangeAppear.setOnCheckedChangeListener(this);
+        mDisAppear.setOnCheckedChangeListener(this);
+        mChangeDisAppear.setOnCheckedChangeListener(this);
+
+        // 创建一个GridLayout
+        mGridLayout = new GridLayout(this);
+        // 设置每列5个按钮
+        mGridLayout.setColumnCount(5);
+        // 添加到布局中
+        lContainer.addView(mGridLayout);
+        //默认动画全部开启
+        mTransition = new LayoutTransition();
+        mGridLayout.setLayoutTransition(mTransition);
     }
 
     //3d场景动画

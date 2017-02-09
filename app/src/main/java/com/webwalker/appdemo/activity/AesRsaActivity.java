@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.webwalker.appdemo.R;
 import com.webwalker.framework.utils.JsonUtil;
+import com.webwalker.framework.utils.JsonUtils;
 
 import java.util.TreeMap;
 
@@ -44,7 +45,7 @@ public class AesRsaActivity extends BaseActivity {
         //String sign = EncryUtil.handleRSA(params, clientPrivateKey);
         //params.put("sign", sign);
 
-        String info = JsonUtil.gson.toJson(params);
+        String info = JsonUtils.toJson(params);
         //随机生成AES密钥
         //String aesKey = RandomUtil.getRandom(16);
         //AES加密数据

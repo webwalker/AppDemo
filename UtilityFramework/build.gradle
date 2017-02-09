@@ -51,4 +51,6 @@ dependencies {
     compile 'com.facebook.fresco:animated-webp:1.0.0'
     compile 'com.facebook.fresco:webpsupport:1.0.0'
     //----------------end-------------------
+    compile 'com.fasterxml.jackson.core:jackson-core:2.4.4'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.4'
 }
