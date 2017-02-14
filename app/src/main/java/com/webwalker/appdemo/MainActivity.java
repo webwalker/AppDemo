@@ -22,6 +22,7 @@ import com.webwalker.appdemo.activity.SlideDragActivity;
 import com.webwalker.appdemo.activity.SnackbarActivity;
 import com.webwalker.appdemo.activity.TextViewActivity;
 import com.webwalker.appdemo.activity.UIActivity;
+import com.webwalker.appdemo.activity.ViewPagerBannerActivity;
 import com.webwalker.appdemo.activity.WebTestActivity;
 import com.webwalker.appdemo.activity.YoutubeActivity;
 import com.webwalker.appdemo.adapter.MyRecycleAdapter;
@@ -105,6 +106,7 @@ public class MainActivity extends BaseActivity {
         list.add(new DrawActivity(Params.get().label("绘图")));
         list.add(new AnimationActivity(Params.get().label("动画")));
         list.add(new SVGActivity());
+        list.add(new ViewPagerBannerActivity());
 
         return list;
     }

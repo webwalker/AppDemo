@@ -55,7 +55,8 @@
         <activity android:name=".activity.AnimationActivity" />
         <activity android:name=".activity.FrescoActivity" />
         <activity android:name=".activity.DrawActivity" />
-        <activity android:name=".activity.SVGActivity"></activity>
+        <activity android:name=".activity.SVGActivity" />
+        <activity android:name=".activity.ViewPagerBannerActivity"></activity>
     </application>
 
 </manifest>
