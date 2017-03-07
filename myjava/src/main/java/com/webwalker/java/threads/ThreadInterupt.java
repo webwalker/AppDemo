@@ -3,7 +3,7 @@ package com.webwalker.java.threads;
 /**
  * @author Administrator 线程中断 中断后继续执行
  */
-public class ThreadInterupts implements ITester {
+public class ThreadInterupt implements ITester {
 
     Thread t = Thread.currentThread();
 

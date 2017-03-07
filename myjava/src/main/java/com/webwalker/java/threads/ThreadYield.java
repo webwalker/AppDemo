@@ -2,17 +2,15 @@ package com.webwalker.java.threads;
 
 /**
  * @author Administrator
- *
  */
-public class SuspendResumes implements ITester {
+public class ThreadYield implements ITester {
 
     @Override
     public void Test() {
         TestThreadMethod t1 = new TestThreadMethod("t1");
         TestThreadMethod t2 = new TestThreadMethod("t2");
-        t1.start();// （5）
-        // t1.start();　//（3）
-        t2.start();// （4）
+        t1.start();// £¨1£©
+        t2.start();// £¨2£©
     }
 
     class TestThreadMethod extends Thread {
@@ -23,18 +21,12 @@ public class SuspendResumes implements ITester {
         }
 
         public synchronized void run() {
-            if (shareVar == 0) {
-                for (int i = 0; i < 5; i++) {
-                    shareVar++;
-                    if (shareVar == 5) {
-                        this.suspend();// （1）
-                    }
-                }
-            } else {
+            for (int i = 0; i < 4; i++) {
                 System.out.print(Thread.currentThread().getName());
-                System.out.println(" shareVar = " + shareVar);
-                this.resume();// （2）
+                System.out.println(" extends " + i);
+                Thread.yield();
             }
         }
     }
+
 }

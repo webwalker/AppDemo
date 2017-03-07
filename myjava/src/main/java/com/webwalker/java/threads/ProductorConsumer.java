@@ -4,7 +4,7 @@ package com.webwalker.java.threads;
  * @author Administrator 生产者消费者 无同步前， 生产消费非常乱， 属性交叉 即便增加了, 线程同步也会产生问题：
  *         1、生产者多生产了数据 2、消费者多取了数据
  */
-public class ProductorConsumers implements ITester {
+public class ProductorConsumer implements ITester {
 
     /**
      * 生产者-消费者（producer-consumer）问题，也称作有界缓冲区（bounded-buffer）问题，

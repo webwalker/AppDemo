@@ -3,7 +3,7 @@ package com.webwalker.java.threads;
 /**
  * @author Administrator 线程2等待线程1结束后打印结果,一定意义上，它可以实现同步的功能
  */
-public class ThreadJoins implements ITester {
+public class ThreadJoin implements ITester {
 
     int sum = 0;
 

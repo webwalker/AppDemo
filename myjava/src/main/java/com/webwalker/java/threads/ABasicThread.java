@@ -3,7 +3,7 @@ package com.webwalker.java.threads;
 /**
  * 一个传统的线程类
  */
-public class ABasicThreads implements ITester {
+public class ABasicThread implements ITester {
     @Override
     public void Test() {
         /** 第一种实现方式, 重写 run 方法 */

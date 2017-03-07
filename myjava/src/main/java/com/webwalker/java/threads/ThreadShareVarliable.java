@@ -3,7 +3,7 @@ package com.webwalker.java.threads;
 /**
  * @author Administrator 线程安全 共享变量
  */
-public class ThreadShareVarliables implements ITester {
+public class ThreadShareVarliable implements ITester {
 
     @Override
     public void Test() {

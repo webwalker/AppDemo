@@ -3,7 +3,7 @@ package com.webwalker.java.threads;
 /**
  * @author Administrator 单线程处理
  */
-public class ThreadSynchronizeds implements ITester {
+public class ThreadSynchronized implements ITester {
 
     @Override
     public void Test() {

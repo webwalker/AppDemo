@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * 线程范围内共享变量 示例程序
  */
-public class ThreadShareDatas implements ITester {
+public class ThreadShareData implements ITester {
 
     private static int data = 0;
     private static Map<Thread, Integer> threadData = new HashMap<Thread, Integer>();

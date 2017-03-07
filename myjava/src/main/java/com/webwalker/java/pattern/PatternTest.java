@@ -69,7 +69,7 @@ import com.webwalker.java.pattern.Structural.Proxy.Proxy;
 /**
  * @author Administrator
  */
-public class PatternsTest {
+public class PatternTest {
     // / <summary>
     // / 责任链模式：
     // / 解除请求的发送者和接收者之间的耦合，而使多个对象有机会处

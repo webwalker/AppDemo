@@ -3,7 +3,7 @@ package com.webwalker.java.threads;
 /**
  * @author Administrator
  */
-public class SleepLocks implements ITester {
+public class SleepLock implements ITester {
 
     /**
      * t1和t2是两个对象的线程，所以当线程t1通过sleep()进入停滞时， 排程器会从线程池中调用其它的可执行线程， 从而t2线程被启动

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author Administrator
  */
-public class ThreadPoolExecutorss implements ITester {
+public class ThreadPoolExecutors implements ITester {
     class MyThread extends Thread {
         @Override
         public void run() {

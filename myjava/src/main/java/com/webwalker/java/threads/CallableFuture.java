@@ -12,7 +12,7 @@ import java.util.concurrent.Future;
 /**
  * @author Administrator 程序启动一个线程，完了之后会一个返回结果
  */
-public class CallableFutures implements ITester {
+public class CallableFuture implements ITester {
     @Override
     public void Test() {
         ExecutorService threadPool = Executors.newSingleThreadExecutor();

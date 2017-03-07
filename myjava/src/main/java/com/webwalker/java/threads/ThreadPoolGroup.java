@@ -3,7 +3,7 @@ package com.webwalker.java.threads;
 /**
  * @author Administrator 方便的对线程进行管理
  */
-public class ThreadPoolGroups implements ITester {
+public class ThreadPoolGroup implements ITester {
 
     /**
      * 可以对线程进行遍历，知道那些线程已经运行完毕，还有那些线程在运行
