@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author Administrator
  */
-public class LockPerformanceTest implements   ITester {
+public class LockPerformanceTest implements ITester {
 
     @Override
     public void Test() {
