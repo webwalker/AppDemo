@@ -7,10 +7,8 @@ import android.animation.ValueAnimator;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
-import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
@@ -35,17 +33,17 @@ import com.webwalker.framework.paint.PaintDemo;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DrawActivity extends BaseActivity {
-    @Bind(R.id.xfermodeView)
+    @BindView(R.id.xfermodeView)
     XfermodeView xfermodeView;
-    @Bind(R.id.v_path_canvas)
+    @BindView(R.id.v_path_canvas)
     DrawCanvasView pathCanvas;
-    @Bind(R.id.v_canvas_wave)
+    @BindView(R.id.v_canvas_wave)
     WaveView waveView;
-    @Bind(R.id.v_common_canvas)
+    @BindView(R.id.v_common_canvas)
     CommonCanvasView commonCanvas;
 
     private Bitmap src;

@@ -36,13 +36,13 @@ import com.webwalker.appdemo.web.X5Activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
-    @Bind(R.id.recyclerview)
-    RecyclerView recyclerview;
     public static long startTime;
+    @BindView(R.id.recyclerview)
+    RecyclerView recyclerview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

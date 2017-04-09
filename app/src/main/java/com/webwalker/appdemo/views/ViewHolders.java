@@ -5,16 +5,16 @@ import android.widget.TextView;
 
 import com.webwalker.appdemo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by xujian on 2016/12/8.
  */
 
 public class ViewHolders {
-    @Bind(R.id.btnOpen)
+    @BindView(R.id.btnOpen)
     Button button;
 
-    @Bind(R.id.tv_content)
+    @BindView(R.id.tv_content)
     TextView button2;
 }

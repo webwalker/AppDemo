@@ -15,18 +15,18 @@ import com.webwalker.appdemo.web.MyWebViewClient;
 import com.webwalker.framework.utils.FileUtil;
 import com.webwalker.framework.widget.web.WebViewUtils;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class WebTestActivity extends BaseActivity {
-    @Bind(R.id.etUrl)
+    @BindView(R.id.etUrl)
     EditText etUrl;
-    @Bind(R.id.btnOpen)
+    @BindView(R.id.btnOpen)
     Button btnOpen;
-    @Bind(R.id.linearLayout)
+    @BindView(R.id.linearLayout)
     RelativeLayout linearLayout;
-    @Bind(R.id.webView)
+    @BindView(R.id.webView)
     WebView webView;
 
     @Override

@@ -40,30 +40,30 @@ import com.webwalker.framework.animation.ScaleDisappear;
 import com.webwalker.framework.animation.drawable.ShrinkView;
 import com.webwalker.framework.utils.DeviceUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AnimationActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
-    @Bind(R.id.iv_anim_icon)
+    @BindView(R.id.iv_anim_icon)
     ImageView imageView;
-    @Bind(R.id.iv_anim_icon_reverse)
+    @BindView(R.id.iv_anim_icon_reverse)
     ImageView reverseImageView;
-    @Bind(R.id.v_common_anim)
+    @BindView(R.id.v_common_anim)
     FrameLayout commonView;
-    @Bind(R.id.iv_anim_001)
+    @BindView(R.id.iv_anim_001)
     ImageView iv001;
-    @Bind(R.id.iv_anim_002)
+    @BindView(R.id.iv_anim_002)
     ImageView iv002;
 
-    @Bind(R.id.id_container)
+    @BindView(R.id.id_container)
     LinearLayout lContainer;
-    @Bind(R.id.id_appear)
+    @BindView(R.id.id_appear)
     CheckBox mAppear;
-    @Bind(R.id.id_change_appear)
+    @BindView(R.id.id_change_appear)
     CheckBox mChangeAppear;
-    @Bind(R.id.id_disappear)
+    @BindView(R.id.id_disappear)
     CheckBox mDisAppear;
-    @Bind(R.id.id_change_disappear)
+    @BindView(R.id.id_change_disappear)
     CheckBox mChangeDisAppear;
 
     private GridLayout mGridLayout;

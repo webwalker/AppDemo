@@ -10,16 +10,16 @@ import android.widget.TextView;
 
 import com.webwalker.appdemo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import webwalker.frameworkui.textview.ExpandTextView;
 
 public class TextViewActivity extends BaseActivity {
-    @Bind(R.id.tvMore)
+    @BindView(R.id.tvMore)
     TextView tvMore;
-    @Bind(R.id.ivMore)
+    @BindView(R.id.ivMore)
     ImageView ivMore;
-    @Bind(R.id.tv_content)
+    @BindView(R.id.tv_content)
     ExpandTextView tvContent;
 
     private boolean isShow;

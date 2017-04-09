@@ -19,7 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -27,9 +27,9 @@ import butterknife.ButterKnife;
  * 示例文件：PatchTest
  */
 public class PatchActivity extends BaseActivity {
-    @Bind(R.id.tv_num)
+    @BindView(R.id.tv_num)
     TextView tvNum;
-    @Bind(R.id.btn_fix)
+    @BindView(R.id.btn_fix)
     Button btnFix;
 
     @Override

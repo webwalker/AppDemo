@@ -20,14 +20,14 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class JniActivity extends BaseActivity {
-    @Bind(R.id.tvResult)
+    @BindView(R.id.tvResult)
     TextView tvResult;
-    @Bind(R.id.etString)
+    @BindView(R.id.etString)
     EditText etString;
 
     private String inputString;

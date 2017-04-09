@@ -14,15 +14,15 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 //临时测试使用
 public class TestActivity extends Activity {
-    @Bind(R.id.editText)
+    @BindView(R.id.editText)
     EditText editText;
-    @Bind(R.id.textView)
+    @BindView(R.id.textView)
     TextView textView;
 
     private static Pattern domainPattern = null;

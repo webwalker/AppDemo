@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
@@ -25,9 +25,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class WebViewActivity extends BaseActivity {
-    @Bind(R.id.webView)
+    @BindView(R.id.webView)
     WebView webView;
-    @Bind(R.id.etUrl)
+    @BindView(R.id.etUrl)
     EditText etUrl;
     Response response;
 
