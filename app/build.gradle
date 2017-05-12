@@ -51,18 +51,20 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
 
-    compile 'com.jakewharton:butterknife:8.5.1'//添加这里
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'//添加这里
-
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    //添加这里
+    //添加这里
 
     //compile(name:'frameworkResource-debug', ext:'aar')
 //    compile(name:'bizTestA-Release', ext:'aar')
     //compile(name:'bizTestA-Debug', ext:'aar')
     //compile(name:'frameworkCore-1.0.0', ext:'aar')
     //compile 'com.xujian.architecture:frameworkCore:1.0.0'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
 
 //maven上传
