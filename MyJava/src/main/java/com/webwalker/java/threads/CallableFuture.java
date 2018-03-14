@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * @author Administrator 程序启动一个线程，完了之后会一个返回结果
+ * @author Administrator 程序启动一个线程，完了之后会一个返回结果，任务可以取消
  */
 public class CallableFuture implements ITester {
     @Override
@@ -20,14 +20,14 @@ public class CallableFuture implements ITester {
         Future<String> future = threadPool.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 return "hello";
             }
         });
         System.out.println("future isDone:" + future.isDone());
         System.out.println("等待结果");
         try {
-            System.out.println("拿到结果：" + future.get());
+            System.out.println("拿到结果：" + future.get()); //阻塞直到结果就绪
             System.out.println("future isDone:" + future.isDone());
             // future.cancel(false);
             // System.out.println("future isCancelled：" + future.isCancelled());

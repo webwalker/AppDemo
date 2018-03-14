@@ -1,3 +1,7 @@
+import com.webwalker.java.threads.CallableFuture;
+import com.webwalker.java.threads.ITester;
+import com.webwalker.java.threads.ThreadJoin;
+
 /**
  * Created by xujian on 2017/3/14.
  */
@@ -18,10 +22,13 @@ public class ThreadTest {
 
 
     public void go() {
+        ITester tester = new ThreadJoin();
+        tester.Test();
+        /*
         Thread1 t1 = new Thread1();
         Thread2 t2 = new Thread2();
         t1.start();
-        t2.start();
+        t2.start();*/
     }
 
 
@@ -37,6 +44,7 @@ public class ThreadTest {
                     }
                     try {
                         lock.wait();
+                        System.out.println("Thread1正在wait");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -58,7 +66,9 @@ public class ThreadTest {
                     System.out.println("Thread2在运行");
                     try {
                         lock.wait();
+                        System.out.println("Thread2正在wait");
                         lock.notify();
+                        System.out.println("Thread2正在notify");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
